@@ -119,7 +119,7 @@ ul {
   padding: 12px 0;
   z-index: 1000;
   transition: var(--transition);
-  background: transparent;
+  background: rgba(17, 17, 17, 0.95);
 }
 
 .nav-container {
