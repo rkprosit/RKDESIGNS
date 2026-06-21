@@ -915,16 +915,149 @@ ul {
   }
 }
 
+@media (max-width: 600px) {
+  .posts-feed .fb-page {
+    width: 100% !important;
+  }
+}
+
 @media (max-width: 480px) {
-  .hero-content h1 {
-    font-size: 32px;
+  .hero {
+    min-height: 500px;
   }
 
-  .section-header h2 {
+  .hero-content h1 {
     font-size: 28px;
   }
 
-  .service-text h3 {
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-header h2 {
     font-size: 24px;
+  }
+
+  .service-text {
+    padding: 40px 20px;
+  }
+
+  .service-text h3 {
+    font-size: 22px;
+  }
+
+  .service-text p {
+    font-size: 14px;
+  }
+
+  .service-image {
+    min-height: 220px;
+  }
+
+  .owner {
+    padding: 60px 0;
+  }
+
+  .owner-image {
+    width: 180px;
+    height: 220px;
+  }
+
+  .owner-info h3 {
+    font-size: 24px;
+  }
+
+  .owner-info p {
+    font-size: 14px;
+  }
+
+  .team {
+    padding: 60px 0;
+  }
+
+  .portfolio {
+    padding: 60px 0;
+  }
+
+  .portfolio-item img {
+    height: 200px;
+  }
+
+  .portfolio-overlay h4 {
+    font-size: 16px;
+  }
+
+  .posts {
+    padding: 60px 0;
+  }
+
+  .intro-quote {
+    padding: 40px 0;
+  }
+
+  .quote-content h2 {
+    font-size: 20px;
+  }
+
+  .quote-content p {
+    font-size: 14px;
+  }
+
+  .portfolio-cta {
+    padding: 50px 20px;
+  }
+
+  .portfolio-cta h2 {
+    font-size: 22px;
+  }
+
+  .newsletter-box {
+    padding: 50px 20px;
+  }
+
+  .newsletter-box h3 {
+    font-size: 20px;
+  }
+
+  .footer {
+    padding: 30px 0 0;
+  }
+
+  .footer-social-big {
+    gap: 15px;
+    padding: 25px 0;
+  }
+
+  .social-big {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+
+  .float-buttons {
+    right: 10px;
+    bottom: 80px;
+    gap: 8px;
+  }
+
+  .float-btn {
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+
+  .float-btn i {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .newsletter-form {
+    max-width: 100%;
   }
 }
