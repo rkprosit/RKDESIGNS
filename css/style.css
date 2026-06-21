@@ -474,6 +474,59 @@ ul {
   margin-top: 3px;
 }
 
+/* ========== QUOTE FORM ========== */
+.quote-section {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.quote-form {
+  max-width: 650px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.quote-form input,
+.quote-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  outline: none;
+  color: var(--dark);
+  font-weight: 300;
+  transition: var(--transition);
+}
+
+.quote-form input:focus,
+.quote-form textarea:focus {
+  border-color: var(--gold);
+}
+
+.quote-form textarea {
+  resize: vertical;
+}
+
+.quote-form .btn {
+  align-self: center;
+  margin-top: 5px;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ========== POSTS ========== */
 .posts {
   padding: 100px 0;

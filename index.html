@@ -271,6 +271,28 @@
     </div>
   </section>
 
+  <!-- Get Quote Form -->
+  <section class="quote-section" id="get-quote">
+    <div class="container">
+      <div class="section-header">
+        <h2>Get A Quote</h2>
+        <div class="section-divider"></div>
+      </div>
+      <form class="quote-form" id="quoteForm">
+        <div class="form-row">
+          <input type="text" id="qName" placeholder="Your Name" required>
+          <input type="tel" id="qPhone" placeholder="Phone Number" required>
+        </div>
+        <div class="form-row">
+          <input type="email" id="qEmail" placeholder="Email Address" required>
+          <input type="text" id="qService" placeholder="Service Interested In" required>
+        </div>
+        <textarea id="qAddress" placeholder="Your Address" rows="3" required></textarea>
+        <button type="submit" class="btn btn-primary">Send via WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
   <!-- Newsletter -->
   <section class="newsletter">
     <div class="container">
@@ -384,6 +406,23 @@
       const data = await res.json();
       alert(data.success ? 'Subscribed!' : data.error);
     }
+
+    // Quote form - send to WhatsApp
+    document.getElementById('quoteForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = document.getElementById('qName').value;
+      var phone = document.getElementById('qPhone').value;
+      var email = document.getElementById('qEmail').value;
+      var service = document.getElementById('qService').value;
+      var address = document.getElementById('qAddress').value;
+      var msg = 'Hi RK DESIGNS, I would like a quote.%0A%0A';
+      msg += 'Name: ' + name + '%0A';
+      msg += 'Phone: ' + phone + '%0A';
+      msg += 'Email: ' + email + '%0A';
+      msg += 'Service: ' + service + '%0A';
+      msg += 'Address: ' + address;
+      window.open('https://wa.me/919681132254?text=' + msg, '_blank');
+    });
 
     // Hero slideshow
     (function() {
