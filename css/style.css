@@ -983,6 +983,27 @@ ul {
   font-size: 16px;
 }
 
+.ai-call-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  background: #28a745;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 2px;
+  transition: var(--transition);
+}
+
+.ai-call-btn:hover {
+  background: #218838;
+  color: #fff;
+}
+
 @media (max-width: 480px) {
   .ai-chat {
     width: calc(100% - 40px);

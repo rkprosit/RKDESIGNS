@@ -456,11 +456,18 @@
     aiToggle.addEventListener('click', function() { aiChat.classList.toggle('open'); });
     aiClose.addEventListener('click', function() { aiChat.classList.remove('open'); });
 
-    function addAiMsg(text, isUser) {
+    function addAiMsg(text, isUser, isFallback) {
       var div = document.createElement('div');
       div.className = isUser ? 'ai-user-msg' : 'ai-bot-msg';
       div.textContent = text;
       aiMsgs.appendChild(div);
+      if (isFallback) {
+        var callLink = document.createElement('a');
+        callLink.href = 'tel:+919681132254';
+        callLink.className = 'ai-call-btn';
+        callLink.innerHTML = '<i class="fas fa-phone-alt"></i> Call Now';
+        aiMsgs.appendChild(callLink);
+      }
       aiMsgs.scrollTop = aiMsgs.scrollHeight;
     }
 
@@ -477,7 +484,7 @@
       } else if (msg.includes('portfolio') || msg.includes('work')) {
         return 'Check out our Portfolio section above to see our recent projects!';
       } else {
-        return 'Thank you for your interest! Please fill the "Get A Quote" form or contact us directly for specific details.';
+        return 'Please call us at +91 96811 32254 for more details.';
       }
     }
 
@@ -486,7 +493,9 @@
       if (!text) return;
       addAiMsg(text, true);
       aiInput.value = '';
-      setTimeout(function() { addAiMsg(aiReply(text), false); }, 500);
+      var reply = aiReply(text);
+      var isFallback = reply === 'Please call us at +91 96811 32254 for more details.';
+      setTimeout(function() { addAiMsg(reply, false, isFallback); }, 500);
     }
 
     aiSend.addEventListener('click', handleSend);
