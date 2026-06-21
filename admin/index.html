@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Portfolio Manager | RK DESIGNS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f8f6f1; color: #1a1a1a; }
+    .admin-header { background: #111; color: #fff; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+    .admin-header h1 { font-size: 20px; font-weight: 400; }
+    .admin-header h1 span { color: #c8a165; }
+    .admin-header a { color: #c8a165; text-decoration: none; font-size: 13px; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 30px 20px; }
+    .add-form { background: #fff; padding: 25px; margin-bottom: 30px; border: 1px solid #e5e0d8; }
+    .add-form h2 { font-size: 18px; font-weight: 500; margin-bottom: 20px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+    .form-row.three { grid-template-columns: 1fr 1fr 1fr; }
+    input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid #ddd; font-family: 'Inter', sans-serif; font-size: 14px; outline: none; }
+    input:focus, select:focus { border-color: #c8a165; }
+    textarea { resize: vertical; min-height: 60px; }
+    .btn { padding: 10px 24px; border: none; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; transition: 0.3s; }
+    .btn-gold { background: #c8a165; color: #fff; }
+    .btn-gold:hover { background: #b88d4e; }
+    .btn-dark { background: #111; color: #fff; }
+    .btn-dark:hover { background: #333; }
+    .btn-danger { background: #dc3545; color: #fff; }
+    .btn-danger:hover { background: #b02a37; }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .card { background: #fff; border: 1px solid #e5e0d8; overflow: hidden; }
+    .card img { width: 100%; height: 200px; object-fit: cover; }
+    .card-body { padding: 15px; }
+    .card-body h4 { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
+    .card-body p { font-size: 12px; color: #888; margin-bottom: 8px; }
+    .card-body .badge { display: inline-block; padding: 2px 10px; background: #f0ede8; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+    .card-actions { display: flex; gap: 8px; }
+    .card-actions .btn { flex: 1; text-align: center; font-size: 12px; padding: 6px; }
+    .file-upload { display: flex; gap: 10px; align-items: center; }
+    .file-upload input[type="file"] { flex: 1; padding: 8px; }
+    .preview { max-width: 120px; max-height: 60px; display: none; }
+    @media (max-width: 768px) { .form-row, .form-row.three { grid-template-columns: 1fr; } .portfolio-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .portfolio-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="admin-header">
+    <h1>RK<span>DESIGNS</span> — Admin Panel</h1>
+    <a href="../index.html"><i class="fas fa-external-link-alt"></i> View Site</a>
+  </div>
+  <div class="container">
+    <div class="add-form">
+      <h2>Add Portfolio Item</h2>
+      <div class="form-row">
+        <input type="text" id="title" placeholder="Title (e.g. Modern Living Room)">
+        <input type="text" id="description" placeholder="Description (e.g. Contemporary elegance)">
+      </div>
+      <div class="form-row">
+        <select id="category">
+          <option value="living">Living Room</option>
+          <option value="bedroom">Bedroom</option>
+          <option value="kitchen">Kitchen</option>
+          <option value="office">Office</option>
+        </select>
+        <div class="file-upload">
+          <input type="file" id="imageInput" accept="image/*">
+          <img id="preview" class="preview" alt="preview">
+        </div>
+      </div>
+      <input type="hidden" id="imageUrl">
+      <button class="btn btn-gold" onclick="addPortfolio()">Add to Portfolio</button>
+    </div>
+
+    <h2 style="font-weight:500;font-size:18px;margin-bottom:15px;">Portfolio Items</h2>
+    <div class="portfolio-grid" id="portfolioGrid"></div>
+  </div>
+
+  <script>
+    const API = '../api/portfolio.php';
+    const UPLOAD = '../api/upload.php';
+
+    async function loadPortfolio() {
+      const res = await fetch(API);
+      const items = await res.json();
+      const grid = document.getElementById('portfolioGrid');
+      grid.innerHTML = '';
+      items.forEach(item => {
+        grid.innerHTML += `
+          <div class="card">
+            <img src="${item.image_url}" alt="${item.title}" loading="lazy">
+            <div class="card-body">
+              <span class="badge">${item.category}</span>
+              <h4>${item.title}</h4>
+              <p>${item.description}</p>
+              <div class="card-actions">
+                <button class="btn btn-danger" onclick="deleteItem(${item.id})">Delete</button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    async function addPortfolio() {
+      const title = document.getElementById('title').value.trim();
+      const description = document.getElementById('description').value.trim();
+      const category = document.getElementById('category').value;
+      let imageUrl = document.getElementById('imageUrl').value;
+
+      if (!title || !description) { alert('Title and description are required'); return; }
+
+      if (document.getElementById('imageInput').files.length > 0) {
+        const formData = new FormData();
+        formData.append('image', document.getElementById('imageInput').files[0]);
+        const uploadRes = await fetch(UPLOAD, { method: 'POST', body: formData });
+        const uploadData = await uploadRes.json();
+        if (uploadData.error) { alert(uploadData.error); return; }
+        imageUrl = uploadData.url;
+      }
+
+      if (!imageUrl) { alert('Please upload an image or provide a URL'); return; }
+
+      await fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, description, category, image_url: imageUrl })
+      });
+
+      document.getElementById('title').value = '';
+      document.getElementById('description').value = '';
+      document.getElementById('imageInput').value = '';
+      document.getElementById('imageUrl').value = '';
+      document.getElementById('preview').style.display = 'none';
+      loadPortfolio();
+    }
+
+    async function deleteItem(id) {
+      if (!confirm('Delete this item?')) return;
+      await fetch(API + '?id=' + id, { method: 'DELETE' });
+      loadPortfolio();
+    }
+
+    document.getElementById('imageInput').onchange = function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+          const preview = document.getElementById('preview');
+          preview.src = ev.target.result;
+          preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+    };
+
+    loadPortfolio();
+  </script>
+</body>
+</html>

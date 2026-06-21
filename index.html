@@ -174,50 +174,7 @@
         <button class="filter-btn" data-filter="kitchen">Kitchen</button>
         <button class="filter-btn" data-filter="office">Office</button>
       </div>
-      <div class="portfolio-grid">
-        <div class="portfolio-item" data-category="living">
-          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&q=80" alt="Living Room">
-          <div class="portfolio-overlay">
-            <h4>Modern Living Room</h4>
-            <p>Contemporary elegance</p>
-          </div>
-        </div>
-        <div class="portfolio-item" data-category="bedroom">
-          <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=600&q=80" alt="Bedroom">
-          <div class="portfolio-overlay">
-            <h4>Serene Bedroom</h4>
-            <p>Minimalist comfort</p>
-          </div>
-        </div>
-        <div class="portfolio-item" data-category="kitchen">
-          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Kitchen">
-          <div class="portfolio-overlay">
-            <h4>Gourmet Kitchen</h4>
-            <p>Rustic modern fusion</p>
-          </div>
-        </div>
-        <div class="portfolio-item" data-category="office">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Office">
-          <div class="portfolio-overlay">
-            <h4>Executive Office</h4>
-            <p>Professional luxury</p>
-          </div>
-        </div>
-        <div class="portfolio-item" data-category="living">
-          <img src="https://images.unsplash.com/photo-1616137466211-f939a420be84?w=600&q=80" alt="Living Room">
-          <div class="portfolio-overlay">
-            <h4>Coastal Living Room</h4>
-            <p>Beach house elegance</p>
-          </div>
-        </div>
-        <div class="portfolio-item" data-category="bedroom">
-          <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=600&q=80" alt="Bedroom">
-          <div class="portfolio-overlay">
-            <h4>Master Suite</h4>
-            <p>Luxurious retreat</p>
-          </div>
-        </div>
-      </div>
+      <div class="portfolio-grid" id="portfolioGrid"></div>
     </div>
   </section>
 
@@ -226,8 +183,8 @@
     <div class="container">
       <div class="newsletter-box">
         <h3>Sign Up For Interiors Inspiration</h3>
-        <form class="newsletter-form" id="newsletterForm">
-          <input type="email" placeholder="Enter your email address" required>
+        <form class="newsletter-form" id="newsletterForm" onsubmit="subscribe(event)">
+          <input type="email" id="newsletterEmail" placeholder="Enter your email address" required>
           <button type="submit"><i class="fas fa-arrow-right"></i></button>
         </form>
       </div>
@@ -266,5 +223,51 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script>
+    async function loadPortfolio(category = 'all') {
+      const res = await fetch('api/portfolio.php');
+      const items = await res.json();
+      const grid = document.getElementById('portfolioGrid');
+
+      const filtered = category === 'all' ? items : items.filter(i => i.category === category);
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<p style="color:#888;text-align:center;grid-column:1/-1;">No items yet.</p>';
+        return;
+      }
+
+      grid.innerHTML = filtered.map(item => `
+        <div class="portfolio-item" data-category="${item.category}">
+          <img src="${item.image_url}" alt="${item.title}" loading="lazy">
+          <div class="portfolio-overlay">
+            <h4>${item.title}</h4>
+            <p>${item.description}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        loadPortfolio(this.dataset.filter);
+      });
+    });
+
+    loadPortfolio();
+
+    async function subscribe(e) {
+      e.preventDefault();
+      const email = document.getElementById('newsletterEmail').value;
+      const res = await fetch('api/subscribe.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      const data = await res.json();
+      alert(data.success ? 'Subscribed!' : data.error);
+    }
+  </script>
 </body>
 </html>
