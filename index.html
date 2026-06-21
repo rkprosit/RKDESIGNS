@@ -189,21 +189,17 @@
         <h2>Latest Posts</h2>
         <div class="section-divider"></div>
       </div>
-      <div class="posts-grid">
-        <a href="https://www.facebook.com/rkdesigns.interior.exterior" target="_blank" class="post-card">
-          <div class="post-card-img" style="background:url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80') center/cover"></div>
-          <div class="post-card-body">
-            <p>Follow us on Facebook for latest updates & projects</p>
-            <span>View on Facebook →</span>
-          </div>
-        </a>
-        <a href="https://www.facebook.com/rkdesigns.interior.exterior" target="_blank" class="post-card">
-          <div class="post-card-img" style="background:url('https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&q=80') center/cover"></div>
-          <div class="post-card-body">
-            <p>See our interior design work and client reviews</p>
-            <span>View on Facebook →</span>
-          </div>
-        </a>
+      <div class="posts-feed">
+        <div class="fb-page" 
+          data-href="https://www.facebook.com/rkdesigns.interior.exterior" 
+          data-tabs="timeline" 
+          data-width="500" 
+          data-height="350"
+          data-small-header="true" 
+          data-adapt-container-width="true" 
+          data-hide-cover="true" 
+          data-show-facepile="false">
+        </div>
       </div>
     </div>
   </section>
@@ -393,6 +389,8 @@
     </a>
   </div>
 
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v22.0"></script>
   <script src="js/script.js"></script>
   <script>
     async function loadPortfolio(category = 'all') {
