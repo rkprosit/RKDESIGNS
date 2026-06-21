@@ -501,24 +501,9 @@
     aiSend.addEventListener('click', handleSend);
     aiInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') handleSend(); });
 
-    var modalDelay = 5000;
-    function scheduleModal() {
-      modalTimer = setTimeout(function() {
-        if (!modal.classList.contains('active')) {
-          modal.classList.add('active');
-          modalDelay *= 2;
-          scheduleModal();
-        }
-      }, modalDelay);
-    }
-    function resetModalTimer() {
-      clearTimeout(modalTimer);
-      modalDelay = 5000;
-      scheduleModal();
-    }
-    scheduleModal();
-    document.addEventListener('click', resetModalTimer);
-    document.addEventListener('scroll', resetModalTimer);
+    setTimeout(function() {
+      if (!modal.classList.contains('active')) modal.classList.add('active');
+    }, 10000);
 
     // Quote form - send to WhatsApp
     document.getElementById('quoteForm').addEventListener('submit', function(e) {
