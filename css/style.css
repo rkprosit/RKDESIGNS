@@ -561,6 +561,17 @@ ul {
   line-height: 1;
 }
 
+.modal-logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.modal-logo img {
+  height: 45px;
+  width: auto;
+  display: inline-block;
+}
+
 .modal-box .section-header {
   margin-bottom: 30px;
 }
