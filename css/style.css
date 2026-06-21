@@ -218,7 +218,7 @@ ul {
 .hero {
   height: 100vh;
   min-height: 600px;
-  background: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1600&q=80') center/cover no-repeat;
+  background: url('../uploads/background/back1.jpeg') center/cover no-repeat;
   display: flex;
   align-items: center;
   position: relative;
