@@ -748,7 +748,7 @@ ul {
 .float-buttons {
   position: fixed;
   right: 20px;
-  bottom: 120px;
+  bottom: 100px;
   z-index: 9999;
   display: flex;
   flex-direction: column;
@@ -756,22 +756,28 @@ ul {
 }
 
 .float-btn {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 22px;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 50px;
   color: #fff;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
   transition: var(--transition);
+  animation: floatPulse 2s ease-in-out infinite;
+}
+
+.float-btn i {
+  font-size: 20px;
 }
 
 .float-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
   color: #fff;
+  animation: none;
 }
 
 .float-call {
@@ -780,6 +786,11 @@ ul {
 
 .float-whatsapp {
   background: #25d366;
+}
+
+@keyframes floatPulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
 /* ========== RESPONSIVE ========== */
