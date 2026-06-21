@@ -587,12 +587,56 @@ ul {
 }
 
 .posts-feed {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-.posts-feed .fb-page {
-  max-width: 100%;
+.fb-post-card {
+  text-decoration: none;
+  background: var(--white);
+  border: 1px solid #e5e0d8;
+  overflow: hidden;
+  transition: var(--transition);
+  display: block;
+}
+
+.fb-post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.fb-post-img {
+  height: 200px;
+  width: 100%;
+}
+
+.fb-post-body {
+  padding: 18px 20px;
+}
+
+.fb-post-body p {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+.fb-post-body span {
+  font-size: 11px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .posts-feed {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ========== OWNER ========== */
