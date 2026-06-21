@@ -285,7 +285,16 @@
         </div>
         <div class="form-row">
           <input type="email" id="qEmail" placeholder="Email Address" required>
-          <input type="text" id="qService" placeholder="Service Interested In" required>
+          <select id="qService" required>
+            <option value="" disabled selected>Select Service</option>
+            <option value="Luxury Residence">Luxury Residence</option>
+            <option value="Commercial Office Design">Commercial Office Design</option>
+            <option value="Retail Design">Retail Design</option>
+            <option value="Hospitality">Hospitality</option>
+            <option value="General Residence">General Residence</option>
+            <option value="General Contracting">General Contracting</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
         <textarea id="qAddress" placeholder="Your Address" rows="3" required></textarea>
         <button type="submit" class="btn btn-primary">Send via WhatsApp</button>
