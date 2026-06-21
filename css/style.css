@@ -886,7 +886,7 @@ ul {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: #6c5ce7;
+  background: var(--gold);
   color: #fff;
   display: flex;
   align-items: center;
@@ -921,7 +921,7 @@ ul {
 }
 
 .ai-header {
-  background: #6c5ce7;
+  background: var(--gold);
   color: #fff;
   padding: 14px 16px;
   display: flex;
@@ -965,7 +965,7 @@ ul {
 }
 
 .ai-user-msg {
-  background: #6c5ce7;
+  background: var(--gold);
   color: #fff;
   align-self: flex-end;
   border-bottom-right-radius: 4px;
@@ -989,7 +989,7 @@ ul {
   background: none;
   border: none;
   padding: 0 14px;
-  color: #6c5ce7;
+  color: var(--gold);
   cursor: pointer;
   font-size: 16px;
 }
