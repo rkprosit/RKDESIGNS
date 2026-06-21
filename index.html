@@ -28,7 +28,7 @@
         <li><a href="#team">Our Team</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="#contact" class="btn-nav">Get A Quote Now</a>
+      <a href="#" class="btn-nav" id="openQuoteBtn">Get A Quote Now</a>
       <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
@@ -76,7 +76,7 @@
         <div class="service-text">
           <h3>Luxury Residence</h3>
           <p>Where design meets affluence — comfort matched with unparalleled elegance. We craft bespoke residential interiors that reflect your personality and lifestyle, from sprawling villas to compact luxury apartments.</p>
-          <a href="#contact" class="btn btn-outline">Get A Quote Now</a>
+          <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
         </div>
         <div class="service-image">
           <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Luxury Residence">
@@ -93,7 +93,7 @@
         <div class="service-text">
           <h3>Commercial Office Design</h3>
           <p>When you're surrounded by luxury, excellence is the only outcome. We design productive, inspiring workspaces that elevate your brand identity and foster collaboration among your team.</p>
-          <a href="#contact" class="btn btn-outline">Get A Quote Now</a>
+          <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
         </div>
       </div>
     </div>
@@ -104,7 +104,7 @@
         <div class="service-text">
           <h3>Retail Design</h3>
           <p>Let your customers experience the entire store along with the product. We create immersive retail environments that tell your brand's story and drive customer engagement.</p>
-          <a href="#contact" class="btn btn-outline">Get A Quote Now</a>
+          <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
         </div>
         <div class="service-image">
           <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&q=80" alt="Retail Design">
@@ -121,7 +121,7 @@
         <div class="service-text">
           <h3>Hospitality</h3>
           <p>We don't design rooms, we design experiences. From boutique hotels to fine-dining restaurants, we create memorable spaces that captivate and delight guests.</p>
-          <a href="#contact" class="btn btn-outline">Get A Quote Now</a>
+          <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
         </div>
       </div>
     </div>
@@ -132,7 +132,7 @@
         <div class="service-text">
           <h3>General Residence</h3>
           <p>Simplicity made elegant. We transform everyday homes into beautiful sanctuaries with thoughtful design, quality materials, and a keen eye for detail.</p>
-          <a href="#contact" class="btn btn-outline">Get A Quote Now</a>
+          <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
         </div>
         <div class="service-image">
           <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&q=80" alt="General Residence">
@@ -149,7 +149,7 @@
         <div class="service-text">
           <h3>General Contracting</h3>
           <p>Sit back, relax and watch us getting it done. End-to-end project management from concept to completion, ensuring quality, timeline, and budget alignment.</p>
-          <a href="#contact" class="btn btn-outline">Get A Quote Now</a>
+          <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
         </div>
       </div>
     </div>
@@ -271,9 +271,10 @@
     </div>
   </section>
 
-  <!-- Get Quote Form -->
-  <section class="quote-section" id="get-quote">
-    <div class="container">
+  <!-- Get Quote Modal -->
+  <div class="modal-overlay" id="quoteModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose">&times;</button>
       <div class="section-header">
         <h2>Get A Quote</h2>
         <div class="section-divider"></div>
@@ -300,7 +301,7 @@
         <button type="submit" class="btn btn-primary">Send via WhatsApp</button>
       </form>
     </div>
-  </section>
+  </div>
 
   <!-- Newsletter -->
   <section class="newsletter">
@@ -415,6 +416,15 @@
       const data = await res.json();
       alert(data.success ? 'Subscribed!' : data.error);
     }
+
+    // Quote modal
+    var modal = document.getElementById('quoteModal');
+    document.getElementById('openQuoteBtn').addEventListener('click', function(e) { e.preventDefault(); modal.classList.add('active'); });
+    document.querySelectorAll('.open-quote').forEach(function(btn) {
+      btn.addEventListener('click', function(e) { e.preventDefault(); modal.classList.add('active'); });
+    });
+    document.getElementById('modalClose').addEventListener('click', function() { modal.classList.remove('active'); });
+    modal.addEventListener('click', function(e) { if (e.target === modal) modal.classList.remove('active'); });
 
     // Quote form - send to WhatsApp
     document.getElementById('quoteForm').addEventListener('submit', function(e) {
