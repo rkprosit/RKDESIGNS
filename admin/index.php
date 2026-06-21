@@ -1,3 +1,4 @@
+<?php session_start(); if (!isset($_SESSION['admin'])) { header('Location: login.php'); exit; } ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,22 +13,21 @@
     .admin-header { background: #111; color: #fff; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
     .admin-header h1 { font-size: 20px; font-weight: 400; }
     .admin-header h1 span { color: #c8a165; }
-    .admin-header a { color: #c8a165; text-decoration: none; font-size: 13px; }
+    .admin-header a { color: #c8a165; text-decoration: none; font-size: 13px; margin-left: 15px; }
     .container { max-width: 1100px; margin: 0 auto; padding: 30px 20px; }
     .add-form { background: #fff; padding: 25px; margin-bottom: 30px; border: 1px solid #e5e0d8; }
     .add-form h2 { font-size: 18px; font-weight: 500; margin-bottom: 20px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
-    .form-row.three { grid-template-columns: 1fr 1fr 1fr; }
     input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid #ddd; font-family: 'Inter', sans-serif; font-size: 14px; outline: none; }
     input:focus, select:focus { border-color: #c8a165; }
     textarea { resize: vertical; min-height: 60px; }
     .btn { padding: 10px 24px; border: none; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; transition: 0.3s; }
     .btn-gold { background: #c8a165; color: #fff; }
     .btn-gold:hover { background: #b88d4e; }
-    .btn-dark { background: #111; color: #fff; }
-    .btn-dark:hover { background: #333; }
     .btn-danger { background: #dc3545; color: #fff; }
     .btn-danger:hover { background: #b02a37; }
+    .btn-outline { background: transparent; color: #c8a165; border: 1px solid #c8a165; }
+    .btn-outline:hover { background: #c8a165; color: #fff; }
     .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
     .card { background: #fff; border: 1px solid #e5e0d8; overflow: hidden; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
@@ -40,14 +40,17 @@
     .file-upload { display: flex; gap: 10px; align-items: center; }
     .file-upload input[type="file"] { flex: 1; padding: 8px; }
     .preview { max-width: 120px; max-height: 60px; display: none; }
-    @media (max-width: 768px) { .form-row, .form-row.three { grid-template-columns: 1fr; } .portfolio-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) { .form-row { grid-template-columns: 1fr; } .portfolio-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 480px) { .portfolio-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
   <div class="admin-header">
     <h1>RK<span>DESIGNS</span> — Admin Panel</h1>
-    <a href="../index.html"><i class="fas fa-external-link-alt"></i> View Site</a>
+    <div>
+      <a href="../index.html"><i class="fas fa-external-link-alt"></i> View Site</a>
+      <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
   </div>
   <div class="container">
     <div class="add-form">
@@ -71,45 +74,27 @@
       <input type="hidden" id="imageUrl">
       <button class="btn btn-gold" onclick="addPortfolio()">Add to Portfolio</button>
     </div>
-
     <h2 style="font-weight:500;font-size:18px;margin-bottom:15px;">Portfolio Items</h2>
     <div class="portfolio-grid" id="portfolioGrid"></div>
   </div>
-
   <script>
     const API = '../api/portfolio.php';
     const UPLOAD = '../api/upload.php';
-
     async function loadPortfolio() {
       const res = await fetch(API);
       const items = await res.json();
       const grid = document.getElementById('portfolioGrid');
       grid.innerHTML = '';
       items.forEach(item => {
-        grid.innerHTML += `
-          <div class="card">
-            <img src="${item.image_url}" alt="${item.title}" loading="lazy">
-            <div class="card-body">
-              <span class="badge">${item.category}</span>
-              <h4>${item.title}</h4>
-              <p>${item.description}</p>
-              <div class="card-actions">
-                <button class="btn btn-danger" onclick="deleteItem(${item.id})">Delete</button>
-              </div>
-            </div>
-          </div>
-        `;
+        grid.innerHTML += `<div class="card"><img src="${item.image_url}" alt="${item.title}" loading="lazy"><div class="card-body"><span class="badge">${item.category}</span><h4>${item.title}</h4><p>${item.description}</p><div class="card-actions"><button class="btn btn-danger" onclick="deleteItem(${item.id})">Delete</button></div></div></div>`;
       });
     }
-
     async function addPortfolio() {
       const title = document.getElementById('title').value.trim();
       const description = document.getElementById('description').value.trim();
       const category = document.getElementById('category').value;
       let imageUrl = document.getElementById('imageUrl').value;
-
       if (!title || !description) { alert('Title and description are required'); return; }
-
       if (document.getElementById('imageInput').files.length > 0) {
         const formData = new FormData();
         formData.append('image', document.getElementById('imageInput').files[0]);
@@ -118,15 +103,8 @@
         if (uploadData.error) { alert(uploadData.error); return; }
         imageUrl = uploadData.url;
       }
-
       if (!imageUrl) { alert('Please upload an image or provide a URL'); return; }
-
-      await fetch(API, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, description, category, image_url: imageUrl })
-      });
-
+      await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ title, description, category, image_url: imageUrl }) });
       document.getElementById('title').value = '';
       document.getElementById('description').value = '';
       document.getElementById('imageInput').value = '';
@@ -134,26 +112,15 @@
       document.getElementById('preview').style.display = 'none';
       loadPortfolio();
     }
-
     async function deleteItem(id) {
       if (!confirm('Delete this item?')) return;
       await fetch(API + '?id=' + id, { method: 'DELETE' });
       loadPortfolio();
     }
-
     document.getElementById('imageInput').onchange = function(e) {
       const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(ev) {
-          const preview = document.getElementById('preview');
-          preview.src = ev.target.result;
-          preview.style.display = 'block';
-        };
-        reader.readAsDataURL(file);
-      }
+      if (file) { const reader = new FileReader(); reader.onload = function(ev) { const preview = document.getElementById('preview'); preview.src = ev.target.result; preview.style.display = 'block'; }; reader.readAsDataURL(file); }
     };
-
     loadPortfolio();
   </script>
 </body>
