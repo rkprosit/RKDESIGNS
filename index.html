@@ -419,12 +419,23 @@
 
     // Quote modal
     var modal = document.getElementById('quoteModal');
+    var modalTimer;
     document.getElementById('openQuoteBtn').addEventListener('click', function(e) { e.preventDefault(); modal.classList.add('active'); });
     document.querySelectorAll('.open-quote').forEach(function(btn) {
       btn.addEventListener('click', function(e) { e.preventDefault(); modal.classList.add('active'); });
     });
     document.getElementById('modalClose').addEventListener('click', function() { modal.classList.remove('active'); });
     modal.addEventListener('click', function(e) { if (e.target === modal) modal.classList.remove('active'); });
+
+    function resetModalTimer() {
+      clearInterval(modalTimer);
+      modalTimer = setInterval(function() {
+        if (!modal.classList.contains('active')) modal.classList.add('active');
+      }, 5000);
+    }
+    resetModalTimer();
+    document.addEventListener('click', resetModalTimer);
+    document.addEventListener('scroll', resetModalTimer);
 
     // Quote form - send to WhatsApp
     document.getElementById('quoteForm').addEventListener('submit', function(e) {
