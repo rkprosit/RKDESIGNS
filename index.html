@@ -189,7 +189,9 @@
         <h2>Latest Posts</h2>
         <div class="section-divider"></div>
       </div>
-      <div class="posts-feed" id="fbPosts"></div>
+      <div class="posts-feed">
+        <p style="color:#888;text-align:center;grid-column:1/-1;">Check our <a href="https://www.facebook.com/rkdesigns.interior.exterior" target="_blank" style="color:var(--gold);">Facebook page</a> for latest posts.</p>
+      </div>
     </div>
   </section>
 
@@ -512,35 +514,6 @@
       msg += 'Address: ' + address;
       window.open('https://wa.me/919681132254?text=' + msg, '_blank');
     });
-
-    // Facebook posts - replace PAGE_ID with your Facebook Page ID
-    var fbPageId = 'YOUR_PAGE_ID';
-    var fbAppId = 'YOUR_APP_ID';
-    var fbToken = 'YOUR_ACCESS_TOKEN';
-
-    function loadFbPosts() {
-      var xhr = new XMLHttpRequest();
-      xhr.onload = function() {
-        try {
-          var data = JSON.parse(xhr.responseText).data;
-          var html = '';
-          for (var i = 0; i < Math.min(2, data.length); i++) {
-            var p = data[i];
-            var img = p.full_picture ? '<div class="fb-post-img" style="background:url(' + p.full_picture + ') center/cover"></div>' : '';
-            var msg = p.message ? p.message.substring(0, 120) + '...' : '';
-            html += '<a href="' + p.permalink_url + '" target="_blank" class="fb-post-card">' +
-              img +
-              '<div class="fb-post-body"><p>' + msg + '</p><span>View on Facebook →</span></div></a>';
-          }
-          document.getElementById('fbPosts').innerHTML = html || '<p style="color:#888">No posts yet.</p>';
-        } catch(e) {
-          document.getElementById('fbPosts').innerHTML = '<p style="color:#888">Unable to load posts.</p>';
-        }
-      };
-      xhr.open('GET', 'https://graph.facebook.com/v22.0/' + fbPageId + '/posts?fields=message,full_picture,permalink_url&limit=2&access_token=' + fbToken);
-      xhr.send();
-    }
-    loadFbPosts();
 
     // Hero slideshow
     (function() {
