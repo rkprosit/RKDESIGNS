@@ -385,3 +385,39 @@
       alert(data.success ? 'Subscribed!' : data.error);
     }
 
+    // Hero slideshow
+    (function() {
+      var imgs = [
+        'back1.jpeg','1.jpg.jpeg','2.jpg.jpeg','3.jpg.jpeg','4.jpg.jpeg','5.jpg.jpeg',
+        '6.jpg.jpeg','7.jpg.jpeg','8.jpg.jpeg','9.jpg.jpeg','10.jpg.jpeg',
+        'C1.jpg.jpeg','C1logo.jpg.jpeg','C1_Logo.jpg.jpeg','C1logo.jpg_1_.jpeg',
+        'C1_logo.jpg_2_.jpeg','C1_logo.jpg_3_.jpeg','C1_logo.jpg_4_.jpeg','C1_logo.jpg_5_.jpeg',
+        '1_logo.jpg.jpeg','4_LOGO.jpg.jpeg','02_LOGO.jpg.jpeg','03_LOGO.jpg.jpeg',
+        'C2.jpg.jpeg','C2_Logo.jpg.jpeg','C2_logo.jpg_1_.jpeg','C2_logo.jpg_2_.jpeg',
+        'C2_logo.jpg_3_.jpeg','C2_logo.jpg_4_.jpeg','C2_logo.jpg_5_.jpeg','C2_logo.jpg_6_.jpeg',
+        'C2_logo.jpg_7_.jpeg','C2_logo.jpg_8_.jpeg','C2_logo.jpg_9_.jpeg',
+        'c1A_logo.jpg.jpeg','C1logo.jpg_1_.jpeg','c1_logo.jpg_1_.jpeg'
+      ];
+
+      for (var j = 0; j < imgs.length; j++) {
+        imgs[j] = 'uploads/background/' + imgs[j];
+      }
+
+      var i = 0;
+      var hero = document.querySelector('.hero');
+
+      function next() {
+        hero.style.backgroundImage = "url('" + imgs[i] + "')";
+        i = (i + 1) % imgs.length;
+      }
+
+      for (var j = 0; j < imgs.length; j++) {
+        var img = new Image();
+        img.src = imgs[j];
+      }
+      next();
+      setInterval(next, 2000);
+    })();
+  </script>
+</body>
+</html>

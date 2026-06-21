@@ -222,7 +222,10 @@ ul {
 .hero {
   height: 100vh;
   min-height: 600px;
-  background: url('../uploads/background/back1.jpeg') center/cover no-repeat;
+  background-color: #111;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   position: relative;
