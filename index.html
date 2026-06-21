@@ -20,12 +20,31 @@
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services" class="active">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
+        <li class="dropdown">
+          <a href="#services" class="active">Services <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="#service-luxury">Luxury Residence</a></li>
+            <li><a href="#service-commercial">Commercial Office</a></li>
+            <li><a href="#service-retail">Retail Design</a></li>
+            <li><a href="#service-hospitality">Hospitality</a></li>
+            <li><a href="#service-general-residence">General Residence</a></li>
+            <li><a href="#service-contracting">General Contracting</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#portfolio">Portfolio <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="#portfolio" data-filter="all">All</a></li>
+            <li><a href="#portfolio" data-filter="living">Living Room</a></li>
+            <li><a href="#portfolio" data-filter="bedroom">Bedroom</a></li>
+            <li><a href="#portfolio" data-filter="kitchen">Kitchen</a></li>
+            <li><a href="#portfolio" data-filter="office">Office</a></li>
+          </ul>
+        </li>
         <li><a href="#posts">Posts</a></li>
         <li><a href="#owner">Owner</a></li>
         <li><a href="#team">Our Team</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <a href="#" class="btn-nav" id="openQuoteBtn">Get A Quote Now</a>
@@ -71,7 +90,7 @@
     </div>
 
     <!-- Service 1: Text Left / Image Right -->
-    <div class="service-block">
+    <div class="service-block" id="service-luxury">
       <div class="service-block-inner">
         <div class="service-text">
           <h3>Luxury Residence</h3>
@@ -85,7 +104,7 @@
     </div>
 
     <!-- Service 2: Image Left / Text Right -->
-    <div class="service-block service-block-alt">
+    <div class="service-block service-block-alt" id="service-commercial">
       <div class="service-block-inner">
         <div class="service-image">
           <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Commercial Office">
@@ -99,7 +118,7 @@
     </div>
 
     <!-- Service 3: Text Left / Image Right -->
-    <div class="service-block">
+    <div class="service-block" id="service-retail">
       <div class="service-block-inner">
         <div class="service-text">
           <h3>Retail Design</h3>
@@ -113,7 +132,7 @@
     </div>
 
     <!-- Service 4: Image Left / Text Right -->
-    <div class="service-block service-block-alt">
+    <div class="service-block service-block-alt" id="service-hospitality">
       <div class="service-block-inner">
         <div class="service-image">
           <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80" alt="Hospitality">
@@ -127,7 +146,7 @@
     </div>
 
     <!-- Service 5: Text Left / Image Right -->
-    <div class="service-block">
+    <div class="service-block" id="service-general-residence">
       <div class="service-block-inner">
         <div class="service-text">
           <h3>General Residence</h3>
@@ -141,7 +160,7 @@
     </div>
 
     <!-- Service 6: Image Left / Text Right -->
-    <div class="service-block service-block-alt">
+    <div class="service-block service-block-alt" id="service-contracting">
       <div class="service-block-inner">
         <div class="service-image">
           <img src="https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=800&q=80" alt="General Contracting">
@@ -296,6 +315,37 @@
     </div>
   </div>
 
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2>About Us</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p>At RK DESIGNS, we believe that every space has a story to tell. Founded with a passion for transforming ordinary spaces into extraordinary experiences, we are a Bangalore-based interior design studio specializing in residential, commercial, and hospitality design.</p>
+          <p>Our approach is deeply collaborative — we work closely with each client to understand their vision, lifestyle, and aspirations. From concept to completion, we bring together creativity, craftsmanship, and attention to detail to deliver interiors that are both beautiful and functional.</p>
+          <p>Whether it's a cozy home, a luxury villa, a bustling office, or a serene hotel, we pour our heart into every project, ensuring that each space reflects the unique personality of those who inhabit it.</p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">200+</span>
+              <span class="stat-label">Projects Done</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Happy Clients</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Newsletter -->
   <section class="newsletter">
     <div class="container">
@@ -383,38 +433,75 @@
   <div id="fb-root"></div>
   <script src="js/script.js"></script>
   <script>
-    async function loadPortfolio(category = 'all') {
-      const res = await fetch('api/portfolio.php');
-      const items = await res.json();
-      const grid = document.getElementById('portfolioGrid');
+    var portfolioData = [
+      { category: 'living', title: 'Modern Living Room', image_url: 'uploads/background/1.jpg.jpeg' },
+      { category: 'living', title: 'Elegant Living Space', image_url: 'uploads/background/2.jpg.jpeg' },
+      { category: 'living', title: 'Cozy Living Room', image_url: 'uploads/background/3.jpg.jpeg' },
+      { category: 'living', title: 'Contemporary Living', image_url: 'uploads/background/4.jpg.jpeg' },
+      { category: 'bedroom', title: 'Luxury Bedroom', image_url: 'uploads/background/5.jpg.jpeg' },
+      { category: 'bedroom', title: 'Serene Bedroom', image_url: 'uploads/background/6.jpg.jpeg' },
+      { category: 'bedroom', title: 'Master Bedroom', image_url: 'uploads/background/7.jpg.jpeg' },
+      { category: 'kitchen', title: 'Modern Kitchen', image_url: 'uploads/background/8.jpg.jpeg' },
+      { category: 'kitchen', title: 'Elegant Kitchen', image_url: 'uploads/background/9.jpg.jpeg' },
+      { category: 'kitchen', title: 'Designer Kitchen', image_url: 'uploads/background/10.jpg.jpeg' },
+      { category: 'office', title: 'Executive Office', image_url: 'uploads/background/C1.jpg.jpeg' },
+      { category: 'office', title: 'Corporate Workspace', image_url: 'uploads/background/C2.jpg.jpeg' },
+    ];
 
-      const filtered = category === 'all' ? items : items.filter(i => i.category === category);
+    function loadPortfolio(category) {
+      var items = category === 'all' ? portfolioData : portfolioData.filter(function(i) { return i.category === category; });
+      var grid = document.getElementById('portfolioGrid');
 
-      if (filtered.length === 0) {
+      if (items.length === 0) {
         grid.innerHTML = '<p style="color:#888;text-align:center;grid-column:1/-1;">No items yet.</p>';
         return;
       }
 
-      grid.innerHTML = filtered.map(item => `
-        <div class="portfolio-item" data-category="${item.category}">
-          <img src="${item.image_url}" alt="${item.title}" loading="lazy">
-          <div class="portfolio-overlay">
-            <h4>${item.title}</h4>
-            <p>${item.description}</p>
-          </div>
-        </div>
-      `).join('');
+      grid.innerHTML = items.map(function(item) {
+        return '<div class="portfolio-item" data-category="' + item.category + '">' +
+          '<img src="' + item.image_url + '" alt="' + item.title + '" loading="lazy">' +
+          '<div class="portfolio-overlay">' +
+            '<h4>' + item.title + '</h4>' +
+            '<p>' + item.category.charAt(0).toUpperCase() + item.category.slice(1) + '</p>' +
+          '</div>' +
+        '</div>';
+      }).join('');
     }
 
-    document.querySelectorAll('.filter-btn').forEach(btn => {
+    document.querySelectorAll('.filter-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
         this.classList.add('active');
         loadPortfolio(this.dataset.filter);
       });
     });
 
-    loadPortfolio();
+    document.querySelectorAll('.dropdown-menu a[data-filter]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var filter = this.dataset.filter || 'all';
+        document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+        var targetBtn = document.querySelector('.filter-btn[data-filter="' + filter + '"]');
+        if (targetBtn) targetBtn.classList.add('active');
+        loadPortfolio(filter);
+        document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+        if (navLinks.classList.contains('open')) {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('open');
+        }
+      });
+    });
+
+    document.querySelectorAll('.dropdown-menu a[href^="#service-"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        if (navLinks.classList.contains('open')) {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('open');
+        }
+      });
+    });
+
+    loadPortfolio('all');
 
     async function subscribe(e) {
       e.preventDefault();
