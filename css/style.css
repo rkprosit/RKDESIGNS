@@ -866,6 +866,140 @@ ul {
   font-weight: 300;
 }
 
+/* ========== AI ASSISTANT ========== */
+.ai-toggle {
+  position: fixed;
+  left: 20px;
+  bottom: 100px;
+  z-index: 9999;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #6c5ce7;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  transition: var(--transition);
+}
+
+.ai-toggle:hover {
+  transform: scale(1.1);
+}
+
+.ai-chat {
+  position: fixed;
+  left: 20px;
+  bottom: 165px;
+  z-index: 9999;
+  width: 320px;
+  height: 420px;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ai-chat.open {
+  display: flex;
+}
+
+.ai-header {
+  background: #6c5ce7;
+  color: #fff;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.ai-header button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.ai-msg {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.ai-bot-msg,
+.ai-user-msg {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  line-height: 1.5;
+}
+
+.ai-bot-msg {
+  background: #f0f0f0;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.ai-user-msg {
+  background: #6c5ce7;
+  color: #fff;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.ai-input-row {
+  display: flex;
+  border-top: 1px solid #eee;
+}
+
+.ai-input-row input {
+  flex: 1;
+  border: none;
+  padding: 12px 14px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  outline: none;
+}
+
+.ai-input-row button {
+  background: none;
+  border: none;
+  padding: 0 14px;
+  color: #6c5ce7;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  .ai-chat {
+    width: calc(100% - 40px);
+    left: 20px;
+    bottom: 140px;
+    height: 350px;
+  }
+
+  .ai-toggle {
+    left: 10px;
+    bottom: 80px;
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+}
+
 /* ========== FLOATING SIDE BUTTONS ========== */
 .float-buttons {
   position: fixed;

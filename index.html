@@ -359,6 +359,24 @@
     </div>
   </footer>
 
+  <!-- AI Assistant -->
+  <div class="ai-toggle" id="aiToggle">
+    <i class="fas fa-robot"></i>
+  </div>
+  <div class="ai-chat" id="aiChat">
+    <div class="ai-header">
+      <span>AI Assistant</span>
+      <button id="aiClose">&times;</button>
+    </div>
+    <div class="ai-msg" id="aiMsgs">
+      <div class="ai-bot-msg">Hi! I'm RK DESIGNS AI assistant. How can I help you?</div>
+    </div>
+    <div class="ai-input-row">
+      <input type="text" id="aiInput" placeholder="Type your message...">
+      <button id="aiSend"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+
   <!-- Floating Side Buttons -->
   <div class="float-buttons">
     <a href="tel:+919681132254" class="float-btn float-call" title="Call">
@@ -426,6 +444,53 @@
     });
     document.getElementById('modalClose').addEventListener('click', function() { modal.classList.remove('active'); });
     modal.addEventListener('click', function(e) { if (e.target === modal) modal.classList.remove('active'); });
+
+    // AI Assistant
+    var aiToggle = document.getElementById('aiToggle');
+    var aiChat = document.getElementById('aiChat');
+    var aiClose = document.getElementById('aiClose');
+    var aiInput = document.getElementById('aiInput');
+    var aiSend = document.getElementById('aiSend');
+    var aiMsgs = document.getElementById('aiMsgs');
+
+    aiToggle.addEventListener('click', function() { aiChat.classList.toggle('open'); });
+    aiClose.addEventListener('click', function() { aiChat.classList.remove('open'); });
+
+    function addAiMsg(text, isUser) {
+      var div = document.createElement('div');
+      div.className = isUser ? 'ai-user-msg' : 'ai-bot-msg';
+      div.textContent = text;
+      aiMsgs.appendChild(div);
+      aiMsgs.scrollTop = aiMsgs.scrollHeight;
+    }
+
+    function aiReply(userMsg) {
+      var msg = userMsg.toLowerCase();
+      if (msg.includes('price') || msg.includes('cost') || msg.includes('rate')) {
+        return 'Please share your requirements and we will provide a custom quote. Click "Get A Quote Now" to fill the form!';
+      } else if (msg.includes('service')) {
+        return 'We offer Luxury Residence, Commercial Office, Retail Design, Hospitality, General Residence & Contracting services.';
+      } else if (msg.includes('contact') || msg.includes('phone') || msg.includes('email')) {
+        return 'Call us at +91 96811 32254 or email dhararajesh93@gmail.com.';
+      } else if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey')) {
+        return 'Hello! Welcome to RK DESIGNS. How can I assist you today?';
+      } else if (msg.includes('portfolio') || msg.includes('work')) {
+        return 'Check out our Portfolio section above to see our recent projects!';
+      } else {
+        return 'Thank you for your interest! Please fill the "Get A Quote" form or contact us directly for specific details.';
+      }
+    }
+
+    function handleSend() {
+      var text = aiInput.value.trim();
+      if (!text) return;
+      addAiMsg(text, true);
+      aiInput.value = '';
+      setTimeout(function() { addAiMsg(aiReply(text), false); }, 500);
+    }
+
+    aiSend.addEventListener('click', handleSend);
+    aiInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') handleSend(); });
 
     function resetModalTimer() {
       clearInterval(modalTimer);
