@@ -39,7 +39,7 @@
 
   <!-- Hero -->
   <section class="hero" id="home">
-    <div class="hero-slide" id="heroSlide">
+    <div class="hero-slide">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
         <h1>Where Design<br>Meets Elegance</h1>
@@ -385,62 +385,3 @@
       alert(data.success ? 'Subscribed!' : data.error);
     }
 
-    // Hero background slideshow
-    const bgImages = [
-      'uploads/background/back1.jpeg',
-      'uploads/background/1.jpg.jpeg',
-      'uploads/background/2.jpg.jpeg',
-      'uploads/background/3.jpg.jpeg',
-      'uploads/background/4.jpg.jpeg',
-      'uploads/background/5.jpg.jpeg',
-      'uploads/background/6.jpg.jpeg',
-      'uploads/background/7.jpg.jpeg',
-      'uploads/background/8.jpg.jpeg',
-      'uploads/background/9.jpg.jpeg',
-      'uploads/background/10.jpg.jpeg',
-      'uploads/background/C1.jpg.jpeg',
-      'uploads/background/C1logo.jpg.jpeg',
-      'uploads/background/C1_Logo.jpg.jpeg',
-      'uploads/background/C1logo.jpg_1_.jpeg',
-      'uploads/background/C1_logo.jpg_2_.jpeg',
-      'uploads/background/C1_logo.jpg_3_.jpeg',
-      'uploads/background/C1_logo.jpg_4_.jpeg',
-      'uploads/background/C1_logo.jpg_5_.jpeg',
-      'uploads/background/1_logo.jpg.jpeg',
-      'uploads/background/4_LOGO.jpg.jpeg',
-      'uploads/background/02_LOGO.jpg.jpeg',
-      'uploads/background/03_LOGO.jpg.jpeg',
-      'uploads/background/C2.jpg.jpeg',
-      'uploads/background/C2_Logo.jpg.jpeg',
-      'uploads/background/C2_logo.jpg_1_.jpeg',
-      'uploads/background/C2_logo.jpg_2_.jpeg',
-      'uploads/background/C2_logo.jpg_3_.jpeg',
-      'uploads/background/C2_logo.jpg_4_.jpeg',
-      'uploads/background/C2_logo.jpg_5_.jpeg',
-      'uploads/background/C2_logo.jpg_6_.jpeg',
-      'uploads/background/C2_logo.jpg_7_.jpeg',
-      'uploads/background/C2_logo.jpg_8_.jpeg',
-      'uploads/background/C2_logo.jpg_9_.jpeg',
-      'uploads/background/c1A_logo.jpg.jpeg',
-      'uploads/background/C1logo.jpg_1_.jpeg',
-      'uploads/background/c1_logo.jpg_1_.jpeg'
-    ];
-
-    let bgIndex = 0;
-    const hero = document.querySelector('.hero');
-
-    function changeBg() {
-      const img = new Image();
-      img.onload = () => {
-        hero.style.backgroundImage = `url('${bgImages[bgIndex]}')`;
-        bgIndex = (bgIndex + 1) % bgImages.length;
-      };
-      img.onerror = () => {
-        bgIndex = (bgIndex + 1) % bgImages.length;
-        changeBg();
-      };
-      img.src = bgImages[bgIndex];
-    }
-
-    setTimeout(() => changeBg(), 500);
-    setInterval(changeBg, 3000);
