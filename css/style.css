@@ -1273,6 +1273,12 @@ ul {
 
   .nav-links a {
     font-size: 14px;
+    color: var(--white);
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--gold);
   }
 
   .nav-links .dropdown {
