@@ -501,13 +501,22 @@
     aiSend.addEventListener('click', handleSend);
     aiInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') handleSend(); });
 
-    function resetModalTimer() {
-      clearInterval(modalTimer);
-      modalTimer = setInterval(function() {
-        if (!modal.classList.contains('active')) modal.classList.add('active');
-      }, 5000);
+    var modalDelay = 5000;
+    function scheduleModal() {
+      modalTimer = setTimeout(function() {
+        if (!modal.classList.contains('active')) {
+          modal.classList.add('active');
+          modalDelay *= 2;
+          scheduleModal();
+        }
+      }, modalDelay);
     }
-    resetModalTimer();
+    function resetModalTimer() {
+      clearTimeout(modalTimer);
+      modalDelay = 5000;
+      scheduleModal();
+    }
+    scheduleModal();
     document.addEventListener('click', resetModalTimer);
     document.addEventListener('scroll', resetModalTimer);
 
