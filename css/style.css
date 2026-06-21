@@ -473,70 +473,9 @@ ul {
   background: var(--off-white);
 }
 
-.posts-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.post-card {
-  background: var(--white);
-  border: 1px solid #e5e0d8;
-  padding: 40px 30px;
-  text-align: center;
-  text-decoration: none;
-  transition: var(--transition);
-  display: block;
-}
-
-.post-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-}
-
-.post-card-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #1877f2;
-  color: #fff;
+.posts-feed {
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 26px;
-  margin: 0 auto 20px;
-}
-
-.post-card h4 {
-  font-family: var(--font-serif);
-  font-size: 20px;
-  font-weight: 500;
-  color: var(--dark);
-  margin-bottom: 10px;
-}
-
-.post-card p {
-  font-size: 14px;
-  color: var(--gray);
-  line-height: 1.7;
-  font-weight: 300;
-  margin-bottom: 16px;
-}
-
-.post-card-link {
-  font-size: 12px;
-  color: #1877f2;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 500;
-}
-
-@media (max-width: 600px) {
-  .posts-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* ========== OWNER ========== */
