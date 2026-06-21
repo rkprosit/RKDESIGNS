@@ -20,6 +20,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -29,6 +31,8 @@ body {
   overflow-x: hidden;
   font-weight: 300;
   font-size: 15px;
+  width: 100%;
+  position: relative;
 }
 
 img {
@@ -909,8 +913,14 @@ ul {
 }
 
 @media (max-width: 600px) {
-  .posts-feed .fb-page {
+  .fb-page, .fb-page iframe, .fb-page span, .fb-page > div {
     width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .posts-feed {
+    width: 100%;
+    overflow: hidden;
   }
 }
 
