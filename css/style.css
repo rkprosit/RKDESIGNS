@@ -805,6 +805,44 @@ ul {
   font-weight: 300;
 }
 
+/* ========== FLOATING SIDE BUTTONS ========== */
+.float-buttons {
+  position: fixed;
+  right: 20px;
+  bottom: 120px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.float-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: var(--transition);
+}
+
+.float-btn:hover {
+  transform: scale(1.1);
+  color: #fff;
+}
+
+.float-call {
+  background: #28a745;
+}
+
+.float-whatsapp {
+  background: #25d366;
+}
+
 /* ========== RESPONSIVE ========== */
 @media (max-width: 1024px) {
   .service-text {
