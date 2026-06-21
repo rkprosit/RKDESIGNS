@@ -401,7 +401,7 @@
       'uploads/background/C1.jpg.jpeg',
       'uploads/background/C1logo.jpg.jpeg',
       'uploads/background/C1_Logo.jpg.jpeg',
-      'uploads/background/C1_logo.jpg_1_.jpeg',
+      'uploads/background/C1logo.jpg_1_.jpeg',
       'uploads/background/C1_logo.jpg_2_.jpeg',
       'uploads/background/C1_logo.jpg_3_.jpeg',
       'uploads/background/C1_logo.jpg_4_.jpeg',
@@ -429,15 +429,18 @@
     let bgIndex = 0;
     const hero = document.querySelector('.hero');
 
-    function preloadImages(arr) {
-      arr.forEach(src => { const img = new Image(); img.src = src; });
-    }
-
     function changeBg() {
-      hero.style.backgroundImage = `url('${bgImages[bgIndex]}')`;
-      bgIndex = (bgIndex + 1) % bgImages.length;
+      const img = new Image();
+      img.onload = () => {
+        hero.style.backgroundImage = `url('${bgImages[bgIndex]}')`;
+        bgIndex = (bgIndex + 1) % bgImages.length;
+      };
+      img.onerror = () => {
+        bgIndex = (bgIndex + 1) % bgImages.length;
+        changeBg();
+      };
+      img.src = bgImages[bgIndex];
     }
 
-    preloadImages(bgImages);
-    changeBg();
-    setInterval(changeBg, 2000);
+    setTimeout(() => changeBg(), 500);
+    setInterval(changeBg, 3000);
