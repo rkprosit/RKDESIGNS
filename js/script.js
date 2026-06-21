@@ -7,8 +7,22 @@ hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('open');
 });
 
+// ========== MOBILE DROPDOWN TOGGLE ==========
+document.querySelectorAll('.nav-links .dropdown > a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      this.parentElement.classList.toggle('open');
+    }
+  });
+});
+
+// ========== CLOSE MOBILE MENU ON LINK CLICK ==========
 document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
+  link.addEventListener('click', function() {
+    if (this.parentElement.classList.contains('dropdown')) {
+      return;
+    }
     hamburger.classList.remove('active');
     navLinks.classList.remove('open');
   });
@@ -25,17 +39,7 @@ window.addEventListener('scroll', () => {
       current = section.getAttribute('id');
     }
   });
-// ========== MOBILE DROPDOWN TOGGLE ==========
-document.querySelectorAll('.nav-links .dropdown > a').forEach(function(link) {
-  link.addEventListener('click', function(e) {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      this.parentElement.classList.toggle('open');
-    }
-  });
-});
-
-document.querySelectorAll('.nav-links a').forEach(link => {
+  document.querySelectorAll('.nav-links a').forEach(link => {
     link.classList.remove('active');
     if (link.getAttribute('href') === `#${current}`) {
       link.classList.add('active');
