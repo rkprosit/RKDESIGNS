@@ -32,7 +32,7 @@
             </li>
             <li><a href="#service-commercial">Commercial Office</a></li>
             <li><a href="#service-retail">3D View Design</a></li>
-            <li><a href="#service-hospitality">Restaurant</a></li>
+            <li><a href="#service-hospitality">Bar</a></li>
           </ul>
         </li>
         <li class="dropdown">
@@ -176,12 +176,15 @@
     <!-- Service 6: Image Left / Text Right -->
     <div class="service-block service-block-alt" id="service-hospitality">
       <div class="service-block-inner">
-        <div class="service-image">
-          <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80" alt="Hospitality">
+        <div class="service-image" style="position:relative;">
+          <a href="#portfolio" id="barImgLink">
+            <img id="barImg" src="uploads/portfolio/bar/C1 logo.jpg (2).jpeg" alt="Bar" style="cursor:pointer;">
+          </a>
+          <button id="shuffleBarBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
         </div>
         <div class="service-text">
-          <h3>Restaurant</h3>
-          <p>We design dining spaces that blend ambiance with functionality. From intimate cafes to fine-dining restaurants, we create memorable experiences that keep guests coming back.</p>
+          <h3>Bar</h3>
+          <p>We design bars that blend atmosphere with function. From sleek cocktail lounges to high-energy social spots, we create spaces that set the perfect mood.</p>
           <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
         </div>
       </div>
@@ -762,6 +765,36 @@
     });
 
     setInterval(shuffleLuxury, 2000);
+
+    var barImages = [
+      'uploads/portfolio/bar/C1 logo.jpg (2).jpeg',
+      'uploads/portfolio/bar/C2 Logo.jpg (2).jpeg',
+      'uploads/portfolio/bar/C3 Logo.jpg (1).jpeg',
+      'uploads/portfolio/bar/C4logo.jpg.jpeg',
+      'uploads/portfolio/bar/C5 Logo.jpg (1).jpeg',
+      'uploads/portfolio/bar/C6 logo.jpg.jpeg',
+      'uploads/portfolio/bar/C7 Logo.jpg.jpeg',
+      'uploads/portfolio/bar/C8 Logo.jpg.jpeg',
+    ];
+    var barIndex = 0;
+    function shuffleBar() {
+      var img = document.getElementById('barImg');
+      barIndex = (barIndex + 1) % barImages.length;
+      img.src = barImages[barIndex];
+    }
+
+    document.getElementById('shuffleBarBtn').addEventListener('click', shuffleBar);
+
+    document.getElementById('barImgLink').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+      var targetBtn = document.querySelector('.filter-btn[data-filter="bar"]');
+      if (targetBtn) targetBtn.classList.add('active');
+      loadPortfolio('bar');
+      document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    setInterval(shuffleBar, 2000);
 
     loadPortfolio('all');
 
