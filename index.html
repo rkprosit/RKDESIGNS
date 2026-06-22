@@ -467,6 +467,14 @@
   </div>
 
   <div id="fb-root"></div>
+
+  <div id="lightbox" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:9999;justify-content:center;align-items:center;">
+    <span id="lightboxClose" style="position:absolute;top:20px;right:30px;color:#fff;font-size:40px;cursor:pointer;z-index:10;">&times;</span>
+    <span id="lightboxPrev" style="position:absolute;left:20px;top:50%;transform:translateY(-50%);color:#fff;font-size:50px;cursor:pointer;z-index:10;padding:10px;">&#10094;</span>
+    <span id="lightboxNext" style="position:absolute;right:20px;top:50%;transform:translateY(-50%);color:#fff;font-size:50px;cursor:pointer;z-index:10;padding:10px;">&#10095;</span>
+    <img id="lightboxImg" src="" alt="" style="max-width:90%;max-height:90%;object-fit:contain;border-radius:4px;">
+  </div>
+
   <script src="js/script.js"></script>
   <script>
     var portfolioData = [
@@ -633,7 +641,7 @@
       var shown = items.slice(0, visibleCount);
 
       grid.innerHTML = shown.map(function(item) {
-        return '<div class="portfolio-item" data-category="' + item.category + '">' +
+        return '<div class="portfolio-item" data-category="' + item.category + '" data-src="' + item.image_url + '" data-title="' + item.title + '">' +
           '<img src="' + item.image_url + '" alt="' + item.title + '" loading="lazy">' +
           '<div class="portfolio-overlay">' +
             '<h4>' + item.title + '</h4>' +
@@ -687,6 +695,62 @@
           navLinks.classList.remove('open');
         }
       });
+    });
+
+    var lightboxItems = [];
+
+    document.getElementById('portfolioGrid').addEventListener('click', function(e) {
+      var item = e.target.closest('.portfolio-item');
+      if (!item) return;
+      var items = document.querySelectorAll('#portfolioGrid .portfolio-item');
+      lightboxItems = [];
+      items.forEach(function(el) { lightboxItems.push({ src: el.dataset.src, title: el.dataset.title }); });
+      var idx = Array.from(items).indexOf(item);
+      openLightbox(idx);
+    });
+
+    function openLightbox(idx) {
+      var img = document.getElementById('lightboxImg');
+      img.src = lightboxItems[idx].src;
+      img.alt = lightboxItems[idx].title;
+      img.dataset.index = idx;
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+
+    document.getElementById('lightboxClose').addEventListener('click', function() {
+      document.getElementById('lightbox').style.display = 'none';
+    });
+
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) this.style.display = 'none';
+    });
+
+    document.getElementById('lightboxPrev').addEventListener('click', function() {
+      var img = document.getElementById('lightboxImg');
+      var idx = parseInt(img.dataset.index);
+      if (lightboxItems.length === 0) return;
+      idx = (idx - 1 + lightboxItems.length) % lightboxItems.length;
+      img.src = lightboxItems[idx].src;
+      img.alt = lightboxItems[idx].title;
+      img.dataset.index = idx;
+    });
+
+    document.getElementById('lightboxNext').addEventListener('click', function() {
+      var img = document.getElementById('lightboxImg');
+      var idx = parseInt(img.dataset.index);
+      if (lightboxItems.length === 0) return;
+      idx = (idx + 1) % lightboxItems.length;
+      img.src = lightboxItems[idx].src;
+      img.alt = lightboxItems[idx].title;
+      img.dataset.index = idx;
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (document.getElementById('lightbox').style.display === 'flex') {
+        if (e.key === 'Escape') document.getElementById('lightbox').style.display = 'none';
+        if (e.key === 'ArrowLeft') document.getElementById('lightboxPrev').click();
+        if (e.key === 'ArrowRight') document.getElementById('lightboxNext').click();
+      }
     });
 
     var officeImages = [
