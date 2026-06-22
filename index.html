@@ -621,6 +621,14 @@
     var visibleCount = 0;
     var pageSize = 6;
 
+    function shuffleArray(arr) {
+      for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+      }
+      return arr;
+    }
+
     function loadPortfolio(category) {
       currentCategory = category;
       visibleCount = pageSize;
@@ -629,6 +637,7 @@
 
     function renderPortfolio() {
       var items = currentCategory === 'all' ? portfolioData : portfolioData.filter(function(i) { return i.category === currentCategory; });
+      items = shuffleArray(items);
       var grid = document.getElementById('portfolioGrid');
       var btn = document.getElementById('showMoreBtn');
 
