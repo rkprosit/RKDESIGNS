@@ -142,31 +142,14 @@
     <!-- Service 4: Image Left / Text Right -->
     <div class="service-block service-block-alt" id="service-commercial">
       <div class="service-block-inner">
-        <div class="service-image">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Commercial Office">
+        <div class="service-image" style="position:relative;">
+          <img id="officeImg" src="uploads/portfolio/office/C1 logo.jpg.jpeg" alt="Commercial Office">
+          <button id="shuffleOfficeBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
         </div>
         <div class="service-text">
           <h3>Commercial Office Design</h3>
           <p>When you're surrounded by luxury, excellence is the only outcome. We design productive, inspiring workspaces that elevate your brand identity and foster collaboration among your team.</p>
           <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
-          <div class="service-gallery">
-            <h4 style="margin:1.5rem 0 0.8rem;font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;color:var(--gold);">Our Office Projects</h4>
-            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;">
-              <a href="uploads/portfolio/office/C1 logo.jpg.jpeg" target="_blank"><img src="uploads/portfolio/office/C1 logo.jpg.jpeg" alt="Office" style="width:100%;height:90px;object-fit:cover;border-radius:4px;"></a>
-              <a href="uploads/portfolio/office/C1 logo.jpg (2).jpeg" target="_blank"><img src="uploads/portfolio/office/C1 logo.jpg (2).jpeg" alt="Office" style="width:100%;height:90px;object-fit:cover;border-radius:4px;"></a>
-              <a href="uploads/portfolio/office/C2 logo.jpg.jpeg" target="_blank"><img src="uploads/portfolio/office/C2 logo.jpg.jpeg" alt="Office" style="width:100%;height:90px;object-fit:cover;border-radius:4px;"></a>
-              <a href="uploads/portfolio/office/c2logo.jpg.jpeg" target="_blank"><img src="uploads/portfolio/office/c2logo.jpg.jpeg" alt="Office" style="width:100%;height:90px;object-fit:cover;border-radius:4px;"></a>
-              <a href="uploads/portfolio/office/c3 logo.jpg (1).jpeg" target="_blank"><img src="uploads/portfolio/office/c3 logo.jpg (1).jpeg" alt="Office" style="width:100%;height:90px;object-fit:cover;border-radius:4px;"></a>
-              <a href="uploads/portfolio/office/C3 logo.jpg (2).jpeg" target="_blank"><img src="uploads/portfolio/office/C3 logo.jpg (2).jpeg" alt="Office" style="width:100%;height:90px;object-fit:cover;border-radius:4px;"></a>
-              <a href="uploads/portfolio/office/C4 logo.jpg.jpeg" target="_blank"><img src="uploads/portfolio/office/C4 logo.jpg.jpeg" alt="Office" style="width:100%;height:90px;object-fit:cover;border-radius:4px;"></a>
-              <a href="uploads/portfolio/office/C4 logo.jpg (2).jpeg" target="_blank"><img src="uploads/portfolio/office/C4 logo.jpg (2).jpeg" alt="Office" style="width:100%;height:90px;object-fit:cover;border-radius:4px;"></a>
-              <a href="uploads/portfolio/office/C5 logo.jpg.jpeg" target="_blank"><img src="uploads/portfolio/office/C5 logo.jpg.jpeg" alt="Office" style="width:100%;height:90px;object-fit:cover;border-radius:4px;"></a>
-              <a href="uploads/portfolio/office/avz.jpeg" target="_blank"><img src="uploads/portfolio/office/avz.jpeg" alt="Office" style="width:100%;height:90px;object-fit:cover;border-radius:4px;"></a>
-              <a href="uploads/portfolio/office/djke.jpeg" target="_blank"><img src="uploads/portfolio/office/djke.jpeg" alt="Office" style="width:100%;height:90px;object-fit:cover;border-radius:4px;"></a>
-              <a href="uploads/portfolio/office/thzb.jpeg" target="_blank"><img src="uploads/portfolio/office/thzb.jpeg" alt="Office" style="width:100%;height:90px;object-fit:cover;border-radius:4px;"></a>
-              <a href="uploads/portfolio/office/vn.jpeg" target="_blank"><img src="uploads/portfolio/office/vn.jpeg" alt="Office" style="width:100%;height:90px;object-fit:cover;border-radius:4px;"></a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -683,6 +666,30 @@
           navLinks.classList.remove('open');
         }
       });
+    });
+
+    var officeImages = [
+      'uploads/portfolio/office/C1 logo.jpg.jpeg',
+      'uploads/portfolio/office/C1 logo.jpg (2).jpeg',
+      'uploads/portfolio/office/C2 logo.jpg.jpeg',
+      'uploads/portfolio/office/c2logo.jpg.jpeg',
+      'uploads/portfolio/office/c3 logo.jpg (1).jpeg',
+      'uploads/portfolio/office/C3 logo.jpg (2).jpeg',
+      'uploads/portfolio/office/C4 logo.jpg.jpeg',
+      'uploads/portfolio/office/C4 logo.jpg (2).jpeg',
+      'uploads/portfolio/office/C5 logo.jpg.jpeg',
+      'uploads/portfolio/office/avz.jpeg',
+      'uploads/portfolio/office/djke.jpeg',
+      'uploads/portfolio/office/thzb.jpeg',
+      'uploads/portfolio/office/vn.jpeg',
+    ];
+    document.getElementById('shuffleOfficeBtn').addEventListener('click', function() {
+      var img = document.getElementById('officeImg');
+      var next;
+      do {
+        next = officeImages[Math.floor(Math.random() * officeImages.length)];
+      } while (next === img.getAttribute('src'));
+      img.src = next;
     });
 
     loadPortfolio('all');
