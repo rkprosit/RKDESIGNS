@@ -117,8 +117,11 @@
     <!-- Service 2: Image Left / Text Right -->
     <div class="service-block service-block-alt" id="service-2bhk">
       <div class="service-block-inner">
-        <div class="service-image">
-          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80" alt="2BHK Interior">
+        <div class="service-image" style="position:relative;">
+          <a href="#portfolio" id="bhk2ImgLink">
+            <img id="bhk2Img" src="uploads/portfolio/bedroom/1 logo.jpg.jpeg" alt="2BHK Interior" style="cursor:pointer;">
+          </a>
+          <button id="shuffleBhk2Btn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
         </div>
         <div class="service-text">
           <h3>2BHK Interior Design</h3>
@@ -136,8 +139,11 @@
           <p>Spacious living, beautifully designed. Our 3BHK interiors offer the perfect balance of luxury and practicality, with dedicated zones for family living, entertainment, and relaxation.</p>
           <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
         </div>
-        <div class="service-image">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="3BHK Interior">
+        <div class="service-image" style="position:relative;">
+          <a href="#portfolio" id="bhk3ImgLink">
+            <img id="bhk3Img" src="uploads/portfolio/bedroom/02 LOGO.jpg.jpeg" alt="3BHK Interior" style="cursor:pointer;">
+          </a>
+          <button id="shuffleBhk3Btn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
         </div>
       </div>
     </div>
@@ -795,6 +801,104 @@
     });
 
     setInterval(shuffleBar, 2000);
+
+    var bhkImages = [
+      'uploads/portfolio/bedroom/1 logo.jpg.jpeg',
+      'uploads/portfolio/bedroom/02 LOGO.jpg.jpeg',
+      'uploads/portfolio/bedroom/03 LOGO.jpg.jpeg',
+      'uploads/portfolio/bedroom/4 LOGO.jpg.jpeg',
+      'uploads/portfolio/bedroom/bfz.jpeg',
+      'uploads/portfolio/bedroom/c1 logo.jpg (1).jpeg',
+      'uploads/portfolio/bedroom/C1 logo.jpg (2).jpeg',
+      'uploads/portfolio/bedroom/C1 logo.jpg (3).jpeg',
+      'uploads/portfolio/bedroom/C1 logo.jpg (4).jpeg',
+      'uploads/portfolio/bedroom/C1 logo.jpg (5).jpeg',
+      'uploads/portfolio/bedroom/c1A logo.jpg.jpeg',
+      'uploads/portfolio/bedroom/C2 logo.jpg (1).jpeg',
+      'uploads/portfolio/bedroom/C2 logo.jpg (2).jpeg',
+      'uploads/portfolio/bedroom/C2 logo.jpg (6).jpeg',
+      'uploads/portfolio/bedroom/C2 logo.jpg (7).jpeg',
+      'uploads/portfolio/bedroom/c3 logo.jpg (1).jpeg',
+      'uploads/portfolio/bedroom/C3 logo.jpg (3).jpeg',
+      'uploads/portfolio/bedroom/C3 logo.jpg (4).jpeg',
+      'uploads/portfolio/bedroom/c4 logo.jpg (1).jpeg',
+      'uploads/portfolio/bedroom/C4 logo.jpg (2).jpeg',
+      'uploads/portfolio/bedroom/C4 logo.jpg (3).jpeg',
+      'uploads/portfolio/bedroom/C4 logo.jpg (4).jpeg',
+      'uploads/portfolio/bedroom/C4 logo.jpg (6).jpeg',
+      'uploads/portfolio/bedroom/C5 logo.jpg (1).jpeg',
+      'uploads/portfolio/bedroom/C5 logo.jpg (4).jpeg',
+      'uploads/portfolio/bedroom/C5 Logo.jpg.jpeg',
+      'uploads/portfolio/bedroom/C6 logo.jpg (1).jpeg',
+      'uploads/portfolio/bedroom/C6 Logo.jpg.jpeg',
+      'uploads/portfolio/bedroom/C7 logo.jpg.jpeg',
+      'uploads/portfolio/bedroom/room 1 view 1 copy.jpg.jpeg',
+      'uploads/portfolio/bedroom/sBBrw.jpeg',
+      'uploads/portfolio/bedroom/sbf zsb.jpeg',
+      'uploads/portfolio/bedroom/thaset.jpeg',
+      'uploads/portfolio/bedroom/vfv.jpeg',
+      'uploads/portfolio/bedroom/wvc.jpeg',
+      'uploads/portfolio/bedroom/zjbfd.jpeg',
+      'uploads/portfolio/bathroom/C1 Logo.jpg.jpeg',
+      'uploads/portfolio/bathroom/C10 logo.jpg.jpeg',
+      'uploads/portfolio/bathroom/C11 logo.jpg.jpeg',
+      'uploads/portfolio/bathroom/C12 logo.jpg.jpeg',
+      'uploads/portfolio/bathroom/C14 logo.jpg.jpeg',
+      'uploads/portfolio/bathroom/C15 logo.jpg.jpeg',
+      'uploads/portfolio/bathroom/C16 logo.jpg.jpeg',
+      'uploads/portfolio/bathroom/C17 logo.jpg.jpeg',
+      'uploads/portfolio/bathroom/C18 logo.jpg.jpeg',
+      'uploads/portfolio/bathroom/c1A logo.jpg.jpeg',
+      'uploads/portfolio/bathroom/C1logo.jpg (1).jpeg',
+      'uploads/portfolio/bathroom/C2 logo.jpg (8).jpeg',
+      'uploads/portfolio/bathroom/C2 logo.jpg (9).jpeg',
+      'uploads/portfolio/bathroom/C2 Logo.jpg.jpeg',
+      'uploads/portfolio/bathroom/C23 logo.jpg.jpeg',
+      'uploads/portfolio/bathroom/C24 logo.jpg.jpeg',
+      'uploads/portfolio/bathroom/C25 logo.jpg.jpeg',
+      'uploads/portfolio/bathroom/C26 logo.jpg.jpeg',
+      'uploads/portfolio/bathroom/C3 logo.jpg (5).jpeg',
+      'uploads/portfolio/bathroom/C4 logo.jpg (7).jpeg',
+      'uploads/portfolio/bathroom/C4 logo.jpg (8).jpeg',
+      'uploads/portfolio/bathroom/C4logo.jpg.jpeg',
+      'uploads/portfolio/bathroom/C6 logo.jpg (1).jpeg',
+      'uploads/portfolio/bathroom/C7 logo.jpg.jpeg',
+      'uploads/portfolio/bathroom/C8 logo.jpg.jpeg',
+      'uploads/portfolio/bathroom/C9 logo.jpg.jpeg',
+      'uploads/portfolio/kitchen/C14.jpg.jpeg',
+      'uploads/portfolio/kitchen/C15.jpg.jpeg',
+      'uploads/portfolio/kitchen/C16.jpg.jpeg',
+      'uploads/portfolio/kitchen/C17.jpg.jpeg',
+    ];
+    var bhk2Index = 0;
+    function shuffleBhk2() {
+      var img = document.getElementById('bhk2Img');
+      bhk2Index = (bhk2Index + 1) % bhkImages.length;
+      img.src = bhkImages[bhk2Index];
+    }
+    var bhk3Index = 0;
+    function shuffleBhk3() {
+      var img = document.getElementById('bhk3Img');
+      bhk3Index = (bhk3Index + 1) % bhkImages.length;
+      img.src = bhkImages[bhk3Index];
+    }
+
+    document.getElementById('shuffleBhk2Btn').addEventListener('click', shuffleBhk2);
+    document.getElementById('shuffleBhk3Btn').addEventListener('click', shuffleBhk3);
+
+    function goToAllPortfolio(e) {
+      e.preventDefault();
+      document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+      var allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+      if (allBtn) allBtn.classList.add('active');
+      loadPortfolio('all');
+      document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+    }
+    document.getElementById('bhk2ImgLink').addEventListener('click', goToAllPortfolio);
+    document.getElementById('bhk3ImgLink').addEventListener('click', goToAllPortfolio);
+
+    setInterval(shuffleBhk2, 2000);
+    setInterval(shuffleBhk3, 2000);
 
     loadPortfolio('all');
 
