@@ -174,9 +174,11 @@
           <p>Experience your space before it's built. We create photorealistic 3D visualizations that bring your design vision to life with stunning detail and accuracy.</p>
           <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
         </div>
-        <div class="service-image" style="position:relative;display:flex;flex-direction:column;gap:4px;padding:4px;">
-          <embed src="uploads/documents/Mr.Prasanta das.pdf" type="application/pdf" style="width:100%;flex:1;min-height:200px;">
-          <embed src="uploads/documents/MR.Murali karmakar haripal update-1 Ground floor.pdf" type="application/pdf" style="width:100%;flex:1;min-height:200px;">
+        <div class="service-image" style="position:relative;">
+          <a href="#portfolio" id="view3dImgLink">
+            <img id="view3dImg" src="uploads/documents/Mr.Prasanta das.jpg" alt="3D View Design" style="cursor:pointer;">
+          </a>
+          <button id="shuffleView3dBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
         </div>
       </div>
     </div>
@@ -903,6 +905,30 @@
 
     setInterval(shuffleBhk2, 2000);
     setInterval(shuffleBhk3, 2000);
+
+    var view3dImages = [
+      'uploads/documents/Mr.Prasanta das.jpg',
+      'uploads/documents/MR.Murali karmakar haripal update-1 Ground floor.jpg',
+    ];
+    var view3dIndex = 0;
+    function shuffleView3d() {
+      var img = document.getElementById('view3dImg');
+      view3dIndex = (view3dIndex + 1) % view3dImages.length;
+      img.src = view3dImages[view3dIndex];
+    }
+
+    document.getElementById('shuffleView3dBtn').addEventListener('click', shuffleView3d);
+
+    document.getElementById('view3dImgLink').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+      var targetBtn = document.querySelector('.filter-btn[data-filter="layout"]');
+      if (targetBtn) targetBtn.classList.add('active');
+      loadPortfolio('layout');
+      document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    setInterval(shuffleView3d, 2000);
 
     loadPortfolio('all');
 
