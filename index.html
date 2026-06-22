@@ -143,7 +143,9 @@
     <div class="service-block service-block-alt" id="service-commercial">
       <div class="service-block-inner">
         <div class="service-image" style="position:relative;">
-          <img id="officeImg" src="uploads/portfolio/office/C1 logo.jpg.jpeg" alt="Commercial Office">
+          <a href="#portfolio" id="officeImgLink">
+            <img id="officeImg" src="uploads/portfolio/office/C1 logo.jpg.jpeg" alt="Commercial Office" style="cursor:pointer;">
+          </a>
           <button id="shuffleOfficeBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
         </div>
         <div class="service-text">
@@ -683,14 +685,25 @@
       'uploads/portfolio/office/thzb.jpeg',
       'uploads/portfolio/office/vn.jpeg',
     ];
-    document.getElementById('shuffleOfficeBtn').addEventListener('click', function() {
+    var officeIndex = 0;
+    function shuffleOffice() {
       var img = document.getElementById('officeImg');
-      var next;
-      do {
-        next = officeImages[Math.floor(Math.random() * officeImages.length)];
-      } while (next === img.getAttribute('src'));
-      img.src = next;
+      officeIndex = (officeIndex + 1) % officeImages.length;
+      img.src = officeImages[officeIndex];
+    }
+
+    document.getElementById('shuffleOfficeBtn').addEventListener('click', shuffleOffice);
+
+    document.getElementById('officeImgLink').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+      var targetBtn = document.querySelector('.filter-btn[data-filter="office"]');
+      if (targetBtn) targetBtn.classList.add('active');
+      loadPortfolio('office');
+      document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
     });
+
+    setInterval(shuffleOffice, 2000);
 
     loadPortfolio('all');
 
