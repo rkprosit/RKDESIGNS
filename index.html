@@ -206,6 +206,9 @@
         <button class="filter-btn" data-filter="showroom">Showroom</button>
       </div>
       <div class="portfolio-grid" id="portfolioGrid"></div>
+      <div style="text-align:center;margin-top:2rem;">
+        <button id="showMoreBtn" class="btn btn-primary" style="display:none;">Show More</button>
+      </div>
     </div>
   </section>
 
@@ -579,16 +582,30 @@
       { category: 'showroom', title: 'WhatsApp 5', image_url: 'uploads/portfolio/showroom/WhatsApp Image 2026-06-22 at 22.04.55.jpeg' },
     ];
 
+    var currentCategory = 'all';
+    var visibleCount = 0;
+    var pageSize = 6;
+
     function loadPortfolio(category) {
-      var items = category === 'all' ? portfolioData : portfolioData.filter(function(i) { return i.category === category; });
+      currentCategory = category;
+      visibleCount = pageSize;
+      renderPortfolio();
+    }
+
+    function renderPortfolio() {
+      var items = currentCategory === 'all' ? portfolioData : portfolioData.filter(function(i) { return i.category === currentCategory; });
       var grid = document.getElementById('portfolioGrid');
+      var btn = document.getElementById('showMoreBtn');
 
       if (items.length === 0) {
         grid.innerHTML = '<p style="color:#888;text-align:center;grid-column:1/-1;">No items yet.</p>';
+        if (btn) btn.style.display = 'none';
         return;
       }
 
-      grid.innerHTML = items.map(function(item) {
+      var shown = items.slice(0, visibleCount);
+
+      grid.innerHTML = shown.map(function(item) {
         return '<div class="portfolio-item" data-category="' + item.category + '">' +
           '<img src="' + item.image_url + '" alt="' + item.title + '" loading="lazy">' +
           '<div class="portfolio-overlay">' +
@@ -597,7 +614,18 @@
           '</div>' +
         '</div>';
       }).join('');
+
+      if (visibleCount >= items.length) {
+        if (btn) btn.style.display = 'none';
+      } else {
+        if (btn) btn.style.display = 'block';
+      }
     }
+
+    document.getElementById('showMoreBtn').addEventListener('click', function() {
+      visibleCount += pageSize;
+      renderPortfolio();
+    });
 
     loadPortfolio('all');
 
