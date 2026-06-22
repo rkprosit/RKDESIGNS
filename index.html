@@ -39,6 +39,10 @@
             <li><a href="#portfolio" data-filter="bedroom">Bedroom</a></li>
             <li><a href="#portfolio" data-filter="kitchen">Kitchen</a></li>
             <li><a href="#portfolio" data-filter="office">Office</a></li>
+            <li><a href="#portfolio" data-filter="bar">Bar</a></li>
+            <li><a href="#portfolio" data-filter="bathroom">Bathroom</a></li>
+            <li><a href="#portfolio" data-filter="exterior">Exterior</a></li>
+            <li><a href="#portfolio" data-filter="showroom">Showroom</a></li>
           </ul>
         </li>
         <li><a href="#posts">Posts</a></li>
@@ -196,6 +200,10 @@
         <button class="filter-btn" data-filter="bedroom">Bedroom</button>
         <button class="filter-btn" data-filter="kitchen">Kitchen</button>
         <button class="filter-btn" data-filter="office">Office</button>
+        <button class="filter-btn" data-filter="bar">Bar</button>
+        <button class="filter-btn" data-filter="bathroom">Bathroom</button>
+        <button class="filter-btn" data-filter="exterior">Exterior</button>
+        <button class="filter-btn" data-filter="showroom">Showroom</button>
       </div>
       <div class="portfolio-grid" id="portfolioGrid"></div>
     </div>
@@ -433,20 +441,7 @@
   <div id="fb-root"></div>
   <script src="js/script.js"></script>
   <script>
-    var portfolioData = [
-      { category: 'living', title: 'Modern Living Room', image_url: 'uploads/background/1.jpg.jpeg' },
-      { category: 'living', title: 'Elegant Living Space', image_url: 'uploads/background/2.jpg.jpeg' },
-      { category: 'living', title: 'Cozy Living Room', image_url: 'uploads/background/3.jpg.jpeg' },
-      { category: 'living', title: 'Contemporary Living', image_url: 'uploads/background/4.jpg.jpeg' },
-      { category: 'bedroom', title: 'Luxury Bedroom', image_url: 'uploads/background/5.jpg.jpeg' },
-      { category: 'bedroom', title: 'Serene Bedroom', image_url: 'uploads/background/6.jpg.jpeg' },
-      { category: 'bedroom', title: 'Master Bedroom', image_url: 'uploads/background/7.jpg.jpeg' },
-      { category: 'kitchen', title: 'Modern Kitchen', image_url: 'uploads/background/8.jpg.jpeg' },
-      { category: 'kitchen', title: 'Elegant Kitchen', image_url: 'uploads/background/9.jpg.jpeg' },
-      { category: 'kitchen', title: 'Designer Kitchen', image_url: 'uploads/background/10.jpg.jpeg' },
-      { category: 'office', title: 'Executive Office', image_url: 'uploads/background/C1.jpg.jpeg' },
-      { category: 'office', title: 'Corporate Workspace', image_url: 'uploads/background/C2.jpg.jpeg' },
-    ];
+    var portfolioData = [];
 
     function loadPortfolio(category) {
       var items = category === 'all' ? portfolioData : portfolioData.filter(function(i) { return i.category === category; });
@@ -467,6 +462,16 @@
         '</div>';
       }).join('');
     }
+
+    fetch('api/portfolio-images.php')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        portfolioData = data;
+        loadPortfolio('all');
+      })
+      .catch(function() {
+        document.getElementById('portfolioGrid').innerHTML = '<p style="color:#888;text-align:center;grid-column:1/-1;">Failed to load portfolio.</p>';
+      });
 
     document.querySelectorAll('.filter-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
