@@ -220,6 +220,29 @@ ul {
   color: var(--gold);
 }
 
+.dropdown-menu .dropdown {
+  position: relative;
+}
+
+.dropdown-menu .dropdown > a i {
+  font-size: 8px;
+  margin-left: 4px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-menu .dropdown:hover > a i {
+  transform: rotate(-90deg);
+}
+
+.dropdown-menu .dropdown .dropdown-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transform: none;
+  margin-top: 0;
+  margin-left: 4px;
+}
+
 .btn-nav {
   padding: 10px 22px;
   background: transparent;
