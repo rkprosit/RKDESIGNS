@@ -105,8 +105,11 @@
           <p>Where design meets affluence — comfort matched with unparalleled elegance. We craft bespoke residential interiors that reflect your personality and lifestyle, from sprawling villas to compact luxury apartments.</p>
           <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
         </div>
-        <div class="service-image">
-          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Luxury Residence">
+        <div class="service-image" style="position:relative;">
+          <a href="#portfolio" id="luxuryImgLink">
+            <img id="luxuryImg" src="uploads/portfolio/living/1.jpg.jpeg" alt="Luxury Residence" style="cursor:pointer;">
+          </a>
+          <button id="shuffleLuxuryBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
         </div>
       </div>
     </div>
@@ -704,6 +707,61 @@
     });
 
     setInterval(shuffleOffice, 2000);
+
+    var luxuryImages = [
+      'uploads/portfolio/living/1.jpg.jpeg',
+      'uploads/portfolio/living/2.jpg.jpeg',
+      'uploads/portfolio/living/3.jpg.jpeg',
+      'uploads/portfolio/living/4.jpg.jpeg',
+      'uploads/portfolio/living/5.jpg.jpeg',
+      'uploads/portfolio/living/6.jpg.jpeg',
+      'uploads/portfolio/living/7.jpg.jpeg',
+      'uploads/portfolio/living/8.jpg.jpeg',
+      'uploads/portfolio/living/9.jpg.jpeg',
+      'uploads/portfolio/living/10.jpg.jpeg',
+      'uploads/portfolio/living/C1.jpg.jpeg',
+      'uploads/portfolio/living/C2.jpg.jpeg',
+      'uploads/portfolio/living/C3.jpg.jpeg',
+      'uploads/portfolio/living/C4.jpg.jpeg',
+      'uploads/portfolio/living/C5.jpg.jpeg',
+      'uploads/portfolio/living/C6.jpg.jpeg',
+      'uploads/portfolio/living/C8.jpg.jpeg',
+      'uploads/portfolio/living/C9.jpg.jpeg',
+      'uploads/portfolio/living/C10.jpg.jpeg',
+      'uploads/portfolio/living/C11.jpg.jpeg',
+      'uploads/portfolio/living/C13.jpg.jpeg',
+      'uploads/portfolio/living/C1 logo.jpg (4).jpeg',
+      'uploads/portfolio/living/C2 logo.jpg (5).jpeg',
+      'uploads/portfolio/living/C3 logo.jpg (4).jpeg',
+      'uploads/portfolio/living/C4 logo.jpg (5).jpeg',
+      'uploads/portfolio/living/C5 logo.jpg (3).jpeg',
+      'uploads/portfolio/living/living v1.jpg.jpeg',
+      'uploads/portfolio/living/living v2.jpg.jpeg',
+      'uploads/portfolio/living/living v3.jpg.jpeg',
+      'uploads/portfolio/living/living v4.jpg.jpeg',
+      'uploads/portfolio/living/living v5.jpg.jpeg',
+      'uploads/portfolio/living/living v6.jpg.jpeg',
+      'uploads/portfolio/living/living v.3.jpg.jpeg',
+    ];
+    var luxuryIndex = 0;
+    function shuffleLuxury() {
+      var img = document.getElementById('luxuryImg');
+      luxuryIndex = (luxuryIndex + 1) % luxuryImages.length;
+      img.src = luxuryImages[luxuryIndex];
+    }
+
+    document.getElementById('shuffleLuxuryBtn').addEventListener('click', shuffleLuxury);
+
+    document.getElementById('luxuryImgLink').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+      var targetBtn = document.querySelector('.filter-btn[data-filter="living"]');
+      if (targetBtn) targetBtn.classList.add('active');
+      loadPortfolio('living');
+      document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    setInterval(shuffleLuxury, 2000);
 
     loadPortfolio('all');
 
