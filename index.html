@@ -659,7 +659,7 @@
     <div class="container">
       <div class="newsletter-box">
         <h3>Enquiry</h3>
-        <a href="#" class="btn btn-primary open-quote" style="margin-top:15px;">Get A Quote Now</a>
+        <a href="#" id="enquiryQuoteBtn" class="btn btn-primary" style="margin-top:15px;">Get A Quote Now</a>
       </div>
     </div>
   </section>
@@ -1304,6 +1304,12 @@
       if (e.target === modal) {
         modal.classList.remove('active');
       }
+    });
+
+    // Enquiry Get A Quote button
+    document.getElementById('enquiryQuoteBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('quoteModal').classList.add('active');
     });
 
     // Auto-show quote popup after 5 seconds
