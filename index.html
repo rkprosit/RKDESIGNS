@@ -282,6 +282,7 @@
 <body>
   <div class="scroll-progress" id="scrollProgress"></div>
   <div class="cursor-dot" id="cursorDot"></div>
+  <a href="#" id="sideQuoteBtn" class="side-quote-btn">Get A Quote Now</a>
 
   <!-- Navigation -->
   <nav class="navbar">
@@ -1294,6 +1295,12 @@
       if (e.target === modal) {
         modal.classList.remove('active');
       }
+    });
+
+    // Side quote button
+    document.getElementById('sideQuoteBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('quoteModal').classList.add('active');
     });
 
     // Auto-show quote popup after 5 seconds
