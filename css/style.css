@@ -1264,6 +1264,16 @@ ul {
   flex-wrap: wrap;
 }
 
+.footer-map {
+  flex: 1;
+  min-width: 280px;
+}
+
+.footer-info {
+  flex: 1;
+  min-width: 280px;
+}
+
 .footer-info p {
   color: var(--gray);
   font-size: 14px;
