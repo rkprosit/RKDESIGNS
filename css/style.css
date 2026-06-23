@@ -949,10 +949,10 @@ ul {
 }
 
 .video-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
