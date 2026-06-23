@@ -201,6 +201,21 @@ img[loading="lazy"] {
   color: var(--white);
 }
 
+@media (max-width: 768px) {
+  .side-quote-btn {
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    transform: none;
+    border-radius: 0;
+    text-align: center;
+    padding: 14px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+  }
+}
+
 /* ========== CUSTOM CURSOR FOLLOW ========== */
 .cursor-dot {
   display: none;
