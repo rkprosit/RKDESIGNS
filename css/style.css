@@ -1189,65 +1189,7 @@ ul {
 }
 
 /* ========== NEWSLETTER ========== */
-.newsletter {
-  padding: 0;
-  background: var(--off-white);
-}
 
-.newsletter-box {
-  text-align: center;
-  padding: 70px 20px;
-  border-bottom: 1px solid #e5e0d8;
-}
-
-.newsletter-box h3 {
-  font-family: var(--font-serif);
-  font-size: 24px;
-  font-weight: 400;
-  color: var(--dark);
-  margin-bottom: 25px;
-  letter-spacing: 0.5px;
-}
-
-.newsletter-form {
-  display: flex;
-  justify-content: center;
-  gap: 0;
-  max-width: 450px;
-  margin: 0 auto;
-  border-bottom: 1px solid var(--dark);
-  padding-bottom: 5px;
-}
-
-.newsletter-form input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  padding: 10px 0;
-  font-family: var(--font-sans);
-  font-size: 14px;
-  outline: none;
-  color: var(--dark);
-  font-weight: 300;
-}
-
-.newsletter-form input::placeholder {
-  color: #bbb;
-}
-
-.newsletter-form button {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 10px 0 10px 15px;
-  color: var(--dark);
-  font-size: 16px;
-  transition: var(--transition);
-}
-
-.newsletter-form button:hover {
-  color: var(--gold);
-}
 
 /* ========== FOOTER ========== */
 .footer {
@@ -2021,17 +1963,7 @@ ul {
     font-size: 13px;
   }
 
-  .newsletter-box {
-    padding: 40px 16px;
-  }
 
-  .newsletter-box h3 {
-    font-size: 18px;
-  }
-
-  .newsletter-form input {
-    font-size: 13px;
-  }
 
   .footer {
     padding: 24px 0 0;
@@ -2102,7 +2034,4 @@ ul {
     font-size: 13px;
   }
 
-  .newsletter-form {
-    max-width: 100%;
-  }
 }

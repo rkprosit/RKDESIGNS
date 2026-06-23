@@ -187,34 +187,4 @@ if (window.matchMedia('(hover: hover)').matches) {
   });
 }
 
-// ========== NEWSLETTER FORM ==========
-var newsletterForm = document.getElementById('newsletterForm');
-if (newsletterForm) {
-  newsletterForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    var input = this.querySelector('input');
-    var email = input.value;
-    var originalPlaceholder = input.placeholder;
-    fetch('api/subscribe.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email })
-    }).then(function(r) { return r.json(); }).then(function(data) {
-      input.value = '';
-      input.placeholder = data.success ? 'Thank you for subscribing!' : data.error || 'Error';
-      input.style.color = '#c8a165';
-      setTimeout(function() {
-        input.placeholder = originalPlaceholder;
-        input.style.color = '';
-      }, 3000);
-    }).catch(function() {
-      input.value = '';
-      input.placeholder = 'Thank you for subscribing!';
-      input.style.color = '#c8a165';
-      setTimeout(function() {
-        input.placeholder = originalPlaceholder;
-        input.style.color = '';
-      }, 3000);
-    });
-  });
-}
+
