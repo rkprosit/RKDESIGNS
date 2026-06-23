@@ -173,48 +173,7 @@ img[loading="lazy"] {
   opacity: 1;
 }
 
-/* ========== SIDE QUOTE BUTTON ========== */
-.side-quote-btn {
-  position: fixed;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%) rotate(-90deg);
-  transform-origin: left center;
-  background: var(--gold);
-  color: var(--white);
-  padding: 12px 24px;
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  border: none;
-  cursor: pointer;
-  z-index: 9999;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background 0.3s;
-  border-radius: 0 4px 4px 0;
-}
 
-.side-quote-btn:hover {
-  background: var(--dark);
-  color: var(--white);
-}
-
-@media (max-width: 768px) {
-  .side-quote-btn {
-    left: 0;
-    right: 0;
-    top: auto;
-    bottom: 0;
-    transform: none;
-    border-radius: 0;
-    text-align: center;
-    padding: 14px;
-    font-size: 14px;
-    letter-spacing: 1.5px;
-  }
-}
 
 /* ========== CUSTOM CURSOR FOLLOW ========== */
 .cursor-dot {
