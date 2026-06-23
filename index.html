@@ -40,7 +40,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v22.0"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
 
   <script type="application/ld+json">
   {
@@ -80,7 +80,7 @@
     "sameAs": [
       "https://www.facebook.com/rkdesigns.interior.exterior",
       "https://www.instagram.com/rkdesigns.interior.exterior",
-      "https://www.youtube.com/@rkdesigns",
+      "https://www.youtube.com/@rkdesignshomedecor3142",
       "https://wa.me/919681132254"
     ],
     "openingHours": "Mo-Su 09:00-20:00",
@@ -110,7 +110,7 @@
     "sameAs": [
       "https://www.facebook.com/rkdesigns.interior.exterior",
       "https://www.instagram.com/rkdesigns.interior.exterior",
-      "https://www.youtube.com/@rkdesigns",
+      "https://www.youtube.com/@rkdesignshomedecor3142",
       "https://wa.me/919681132254"
     ]
   }
@@ -321,7 +321,7 @@
             <li><a href="#portfolio" data-filter="layout">Layout</a></li>
           </ul>
         </li>
-        <li><a href="#posts">Posts</a></li>
+        <li><a href="#posts">Projects</a></li>
         <li><a href="#owner">Owner</a></li>
         <li><a href="#team">Our Team</a></li>
         <li><a href="#about">About</a></li>
@@ -441,13 +441,13 @@
     <div class="service-block" id="service-retail" data-reveal="fade-up">
       <div class="service-block-inner">
         <div class="service-text">
-          <h3>3D View Design in Kolkata</h3>
+          <h3>3D View Design</h3>
           <p>Experience your space before it's built. We create photorealistic 3D visualizations for Kolkata clients that bring your design vision to life with stunning detail and accuracy.</p>
           <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
         </div>
         <div class="service-image" style="position:relative;">
           <a href="#portfolio" id="view3dImgLink">
-            <img id="view3dImg" src="uploads/portfolio/layout/3d-layout-design-kolkata-3.jpg" alt="3D View Design in Kolkata by RK DESIGNS" style="cursor:pointer;">
+            <img id="view3dImg" src="uploads/portfolio/layout/3d-layout-design-kolkata-3.jpg" alt="3D View Design by RK DESIGNS" style="cursor:pointer;">
           </a>
           <button id="shuffleView3dBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
         </div>
@@ -512,12 +512,14 @@
   <section class="posts" id="posts" data-reveal="fade-up">
     <div class="container">
       <div class="section-header">
-        <h2>Latest Posts</h2>
+        <h2>Latest Projects</h2>
         <div class="section-divider"></div>
       </div>
-      <div class="posts-feed">
-        <div id="fb-root"></div>
-        <div class="fb-page" data-href="https://www.facebook.com/rkdesigns.interior.exterior" data-tabs="timeline" data-width="500" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/rkdesigns.interior.exterior" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/rkdesigns.interior.exterior">RK DESIGNS</a></blockquote></div>
+      <div class="video-grid">
+        <div id="youtube-player-0"></div>
+        <div id="youtube-player-1"></div>
+        <div id="youtube-player-2"></div>
+        <div id="youtube-player-3"></div>
       </div>
     </div>
   </section>
@@ -609,11 +611,11 @@
           <select id="qService" required>
             <option value="" disabled selected>Select Service</option>
             <option value="Luxury Residence">Luxury Residence</option>
+            <option value="2BHK Interior Design">2BHK Interior Design</option>
+            <option value="3BHK Interior Design">3BHK Interior Design</option>
             <option value="Commercial Office Design">Commercial Office Design</option>
-            <option value="Retail Design">Retail Design</option>
-            <option value="Hospitality">Hospitality</option>
-            <option value="General Residence">General Residence</option>
-            <option value="General Contracting">General Contracting</option>
+            <option value="3D View Design">3D View Design</option>
+            <option value="Restaurant &amp; Bar Design">Restaurant &amp; Bar Design</option>
             <option value="Other">Other</option>
           </select>
         </div>
@@ -701,7 +703,7 @@
         <a href="https://wa.me/919681132254" target="_blank" rel="noopener noreferrer" class="social-big social-wa" title="WhatsApp">
           <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="https://www.youtube.com/@rkdesigns" target="_blank" rel="noopener noreferrer" class="social-big social-yt" title="YouTube">
+        <a href="https://www.youtube.com/@rkdesignshomedecor3142" target="_blank" rel="noopener noreferrer" class="social-big social-yt" title="YouTube">
           <i class="fab fa-youtube"></i>
         </a>
         <a href="#" target="_blank" rel="noopener noreferrer" class="social-big social-pi" title="Pinterest">
@@ -838,6 +840,7 @@
       { category: 'layout', title: 'layout 1', image_url: 'uploads/portfolio/layout/3d-layout-design-kolkata-1.jpg' },
       { category: 'layout', title: 'layout 2', image_url: 'uploads/portfolio/layout/3d-layout-design-kolkata-2.jpg' },
       { category: 'layout', title: 'layout 3', image_url: 'uploads/portfolio/layout/3d-layout-design-kolkata-3.jpg' },
+      { category: 'layout', title: 'ceiling plan', image_url: 'uploads/portfolio/layout/3d-layout-design-kolkata-4.jpg' },
       { category: 'living', title: 'living 1', image_url: 'uploads/portfolio/living/modern-living-room-interior-kolkata-1.jpg' },
       { category: 'living', title: 'living 2', image_url: 'uploads/portfolio/living/modern-living-room-interior-kolkata-2.jpg' },
       { category: 'living', title: 'living 3', image_url: 'uploads/portfolio/living/modern-living-room-interior-kolkata-3.jpg' },
@@ -1266,6 +1269,7 @@
       'uploads/portfolio/layout/3d-layout-design-kolkata-1.jpg',
       'uploads/portfolio/layout/3d-layout-design-kolkata-2.jpg',
       'uploads/portfolio/layout/3d-layout-design-kolkata-3.jpg',
+      'uploads/portfolio/layout/3d-layout-design-kolkata-4.jpg',
     ];
     var view3dIndex = 0;
     function shuffleView3d() {
@@ -1289,15 +1293,28 @@
 
     loadPortfolio('all');
 
-    // Quote modal
-    var modal = document.getElementById('quoteModal');
-    var modalTimer;
-    document.getElementById('openQuoteBtn').addEventListener('click', function(e) { e.preventDefault(); modal.classList.add('active'); });
-    document.querySelectorAll('.open-quote').forEach(function(btn) {
-      btn.addEventListener('click', function(e) { e.preventDefault(); modal.classList.add('active'); });
+    // Quote modal - event delegation
+    document.addEventListener('click', function(e) {
+      var modal = document.getElementById('quoteModal');
+      if (e.target.closest('#openQuoteBtn') || e.target.closest('.open-quote')) {
+        e.preventDefault();
+        modal.classList.add('active');
+      }
+      if (e.target.closest('#modalClose')) {
+        modal.classList.remove('active');
+      }
+      if (e.target === modal) {
+        modal.classList.remove('active');
+      }
     });
-    document.getElementById('modalClose').addEventListener('click', function() { modal.classList.remove('active'); });
-    modal.addEventListener('click', function(e) { if (e.target === modal) modal.classList.remove('active'); });
+
+    // Auto-show quote popup after 5 seconds
+    setTimeout(function() {
+      var modal = document.getElementById('quoteModal');
+      if (modal && !modal.classList.contains('active')) {
+        modal.classList.add('active');
+      }
+    }, 5000);
 
     // AI Assistant
     var aiToggle = document.getElementById('aiToggle');
@@ -1372,6 +1389,50 @@
       window.open('https://wa.me/919681132254?text=' + msg, '_blank');
     });
 
+    // YouTube 2x2 video grid with auto shuffle
+    var players = [];
+    var readyCount = 0;
+    function onYouTubeIframeAPIReady() {
+      var ids = ['youtube-player-0', 'youtube-player-1', 'youtube-player-2', 'youtube-player-3'];
+      for (var i = 0; i < 4; i++) {
+        players[i] = new YT.Player(ids[i], {
+          playerVars: {
+            listType: 'playlist',
+            list: 'UURD4OaGMUEBxRJ5mOvqiJ5Q',
+            rel: 0,
+            modestbranding: 1,
+            mute: 1,
+          },
+          events: {
+            onReady: (function(idx) {
+              return function() {
+                readyCount++;
+                if (readyCount === 4) {
+                  for (var j = 0; j < 4; j++) {
+                    var list = players[j].getPlaylist();
+                    if (list && list.length) players[j].playVideoAt(Math.floor(Math.random() * list.length));
+                  }
+                }
+              };
+            })(i),
+            onStateChange: (function(idx) {
+              return function(e) {
+                if (e.data === YT.PlayerState.PLAYING && players[idx].getDuration() <= 75) {
+                  players[idx].playVideoAt(Math.floor(Math.random() * players[idx].getPlaylist().length));
+                }
+                if (e.data === YT.PlayerState.ENDED) {
+                  setTimeout(function() {
+                    var list = players[idx].getPlaylist();
+                    if (list && list.length) players[idx].playVideoAt(Math.floor(Math.random() * list.length));
+                  }, 500);
+                }
+              };
+            })(i),
+          }
+        });
+      }
+    }
+
     // Hero slideshow - shuffle all portfolio photos
     (function() {
       var allBgImages = [];
@@ -1381,7 +1442,7 @@
         { dir: 'bedroom', count: 36, newName: 'luxury-bedroom-interior-design-kolkata' },
         { dir: 'exterior', count: 6, newName: 'beautiful-exterior-design-kolkata' },
         { dir: 'kitchen', count: 4, newName: 'modular-kitchen-design-kolkata' },
-        { dir: 'layout', count: 3, newName: '3d-layout-design-kolkata' },
+        { dir: 'layout', count: 4, newName: '3d-layout-design-kolkata' },
         { dir: 'living', count: 33, newName: 'modern-living-room-interior-kolkata' },
         { dir: 'office', count: 13, newName: 'modern-office-interior-design-kolkata' },
         { dir: 'showroom', count: 9, newName: 'modern-showroom-interior-design-kolkata' },
