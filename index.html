@@ -518,8 +518,6 @@
       <div class="video-grid">
         <div id="youtube-player-0"></div>
         <div id="youtube-player-1"></div>
-        <div id="youtube-player-2"></div>
-        <div id="youtube-player-3"></div>
       </div>
     </div>
   </section>
@@ -1393,8 +1391,8 @@
     var players = [];
     var readyCount = 0;
     function onYouTubeIframeAPIReady() {
-      var ids = ['youtube-player-0', 'youtube-player-1', 'youtube-player-2', 'youtube-player-3'];
-      for (var i = 0; i < 4; i++) {
+      var ids = ['youtube-player-0', 'youtube-player-1'];
+      for (var i = 0; i < 2; i++) {
         players[i] = new YT.Player(ids[i], {
           playerVars: {
             listType: 'playlist',
@@ -1407,8 +1405,8 @@
             onReady: (function(idx) {
               return function() {
                 readyCount++;
-                if (readyCount === 4) {
-                  for (var j = 0; j < 4; j++) {
+                if (readyCount === 2) {
+                  for (var j = 0; j < 2; j++) {
                     var list = players[j].getPlaylist();
                     if (list && list.length) players[j].playVideoAt(Math.floor(Math.random() * list.length));
                   }
