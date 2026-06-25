@@ -3,6 +3,5 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 Disallow: /config/
-Disallow: /vendor/
 
 Sitemap: https://www.rkdesignsinterior.in/sitemap.xml
