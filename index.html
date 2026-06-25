@@ -1344,13 +1344,14 @@
     // YouTube 2-player shuffle from fixed video list
     var players = [];
     var videoIds = ['KvIbK7dsxRs', 'ElnB3hXgkPs', '2VM9PdMfIAg', '7nCKxFHmtBw', '1xbzQPmGVLE', 'M33ntge--tw', 'hkBLBFzYDcU', 'rdMnSK2JnPw', 'Ijwv9U2ej7I'];
-    var readyCount = 0;
+    function randomVideo() {
+      return videoIds[Math.floor(Math.random() * videoIds.length)];
+    }
     function onYouTubeIframeAPIReady() {
       for (var i = 0; i < 2; i++) {
         players[i] = new YT.Player('youtube-player-' + i, {
+          videoId: randomVideo(),
           playerVars: {
-            listType: 'playlist',
-            list: videoIds.join(','),
             autoplay: 1,
             rel: 0,
             modestbranding: 1,
@@ -1359,21 +1360,14 @@
           events: {
             onReady: (function(idx) {
               return function() {
-                readyCount++;
-                if (readyCount === 2) {
-                  for (var j = 0; j < 2; j++) {
-                    var list = players[j].getPlaylist();
-                    if (list && list.length) players[j].playVideoAt(Math.floor(Math.random() * list.length));
-                  }
-                }
+                players[idx].playVideo();
               };
             })(i),
             onStateChange: (function(idx) {
               return function(e) {
                 if (e.data === YT.PlayerState.ENDED) {
                   setTimeout(function() {
-                    var list = players[idx].getPlaylist();
-                    if (list && list.length) players[idx].playVideoAt(Math.floor(Math.random() * list.length));
+                    players[idx].loadVideoById(randomVideo());
                   }, 500);
                 }
               };
