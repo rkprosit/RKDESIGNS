@@ -1840,6 +1840,14 @@ ul {
 }
 
 @media (max-width: 600px) {
+  .service-block-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .service-block-alt .service-image {
+    order: -1;
+  }
+
   .fb-page, .fb-page iframe, .fb-page span, .fb-page > div {
     width: 100% !important;
     max-width: 100% !important;
@@ -1900,7 +1908,7 @@ ul {
   }
 
   .service-text p {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.8;
   }
 
@@ -1922,7 +1930,7 @@ ul {
   }
 
   .owner-info p {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.8;
   }
 
@@ -1948,7 +1956,7 @@ ul {
   }
 
   .team-card p {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .portfolio {
