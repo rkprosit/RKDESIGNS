@@ -1346,11 +1346,24 @@
     var players = [];
     var videoIds = ['KvIbK7dsxRs', 'ElnB3hXgkPs', '2VM9PdMfIAg', '7nCKxFHmtBw', '1xbzQPmGVLE', 'M33ntge--tw', 'hkBLBFzYDcU', 'rdMnSK2JnPw', 'Ijwv9U2ej7I'];
     var playersReady = 0;
-    function randomVideo() {
-      return videoIds[Math.floor(Math.random() * videoIds.length)];
+    function getCurrentIds() {
+      var ids = [];
+      for (var p = 0; p < players.length; p++) {
+        if (players[p] && players[p].getVideoData) {
+          var data = players[p].getVideoData();
+          if (data && data.video_id) ids.push(data.video_id);
+        }
+      }
+      return ids;
+    }
+    function randomVideo(exclude) {
+      exclude = exclude || [];
+      var available = videoIds.filter(function(id) { return exclude.indexOf(id) === -1; });
+      if (available.length === 0) available = videoIds.slice();
+      return available[Math.floor(Math.random() * available.length)];
     }
     function loadRandomVideo(idx) {
-      players[idx].loadVideoById({videoId: randomVideo(), startSeconds: 10});
+      players[idx].loadVideoById({videoId: randomVideo(getCurrentIds()), startSeconds: 10});
     }
     function playAll() {
       for (var i = 0; i < players.length; i++) {
@@ -1361,9 +1374,11 @@
       }
     }
     function onYouTubeIframeAPIReady() {
+      var firstId = randomVideo();
+      var secondId = randomVideo([firstId]);
       for (var i = 0; i < 2; i++) {
         players[i] = new YT.Player('youtube-player-' + i, {
-          videoId: randomVideo(),
+          videoId: i === 0 ? firstId : secondId,
           playerVars: {
             autoplay: 1,
             rel: 0,
