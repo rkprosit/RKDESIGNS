@@ -1343,11 +1343,20 @@
     // YouTube 2-player shuffle from fixed video list
     var players = [];
     var videoIds = ['KvIbK7dsxRs', 'ElnB3hXgkPs', '2VM9PdMfIAg', '7nCKxFHmtBw', '1xbzQPmGVLE', 'M33ntge--tw', 'hkBLBFzYDcU', 'rdMnSK2JnPw', 'Ijwv9U2ej7I'];
+    var playersReady = 0;
     function randomVideo() {
       return videoIds[Math.floor(Math.random() * videoIds.length)];
     }
     function loadRandomVideo(idx) {
       players[idx].loadVideoById({videoId: randomVideo(), startSeconds: 10});
+    }
+    function playAll() {
+      for (var i = 0; i < players.length; i++) {
+        if (players[i] && players[i].playVideo) {
+          players[i].seekTo(10, true);
+          players[i].playVideo();
+        }
+      }
     }
     function onYouTubeIframeAPIReady() {
       for (var i = 0; i < 2; i++) {
@@ -1358,13 +1367,33 @@
             rel: 0,
             modestbranding: 1,
             mute: 1,
+            playsinline: 1,
             start: 10,
           },
           events: {
             onReady: (function(idx) {
               return function() {
-                players[idx].seekTo(10, true);
-                players[idx].playVideo();
+                playersReady++;
+                if (playersReady === 2) {
+                  playAll();
+                  // For mobile, try again on first user tap
+                  document.addEventListener('touchstart', function() {
+                    for (var j = 0; j < players.length; j++) {
+                      if (players[j] && players[j].getPlayerState && players[j].getPlayerState() !== YT.PlayerState.PLAYING) {
+                        players[j].seekTo(10, true);
+                        players[j].playVideo();
+                      }
+                    }
+                  }, { once: true });
+                  document.addEventListener('click', function() {
+                    for (var j = 0; j < players.length; j++) {
+                      if (players[j] && players[j].getPlayerState && players[j].getPlayerState() !== YT.PlayerState.PLAYING) {
+                        players[j].seekTo(10, true);
+                        players[j].playVideo();
+                      }
+                    }
+                  }, { once: true });
+                }
               };
             })(i),
             onStateChange: (function(idx) {
