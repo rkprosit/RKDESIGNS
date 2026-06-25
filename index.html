@@ -379,7 +379,7 @@
         </div>
         <div class="service-image" style="position:relative;">
           <a href="#portfolio" id="luxuryImgLink">
-            <img id="luxuryImg" src="uploads/portfolio/living/modern-living-room-interior-kolkata-1.jpg" alt="Luxury Villa Interior Design in Kolkata by RK DESIGNS" style="cursor:pointer;">
+            <img id="luxuryImg" src="uploads/portfolio/living/modern-living-room-interior-kolkata-1.jpg" alt="Luxury Villa Interior Design in Kolkata by RK DESIGNS" style="cursor:pointer;" loading="lazy">
           </a>
           <button id="shuffleLuxuryBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
         </div>
@@ -391,7 +391,7 @@
       <div class="service-block-inner">
         <div class="service-image" style="position:relative;">
           <a href="#portfolio" id="bhk2ImgLink">
-            <img id="bhk2Img" src="uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-2.jpg" alt="2BHK Interior Design in Kolkata by RK DESIGNS" style="cursor:pointer;">
+            <img id="bhk2Img" src="uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-2.jpg" alt="2BHK Interior Design in Kolkata by RK DESIGNS" style="cursor:pointer;" loading="lazy">
           </a>
           <button id="shuffleBhk2Btn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
         </div>
@@ -413,7 +413,7 @@
         </div>
         <div class="service-image" style="position:relative;">
           <a href="#portfolio" id="bhk3ImgLink">
-            <img id="bhk3Img" src="uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-1.jpg" alt="3BHK Interior Design in Kolkata by RK DESIGNS" style="cursor:pointer;">
+            <img id="bhk3Img" src="uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-1.jpg" alt="3BHK Interior Design in Kolkata by RK DESIGNS" style="cursor:pointer;" loading="lazy">
           </a>
           <button id="shuffleBhk3Btn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
         </div>
@@ -425,7 +425,7 @@
       <div class="service-block-inner">
         <div class="service-image" style="position:relative;">
           <a href="#portfolio" id="officeImgLink">
-            <img id="officeImg" src="uploads/portfolio/office/modern-office-interior-design-kolkata-1.jpg" alt="Office Interior Design in Kolkata by RK DESIGNS" style="cursor:pointer;">
+            <img id="officeImg" src="uploads/portfolio/office/modern-office-interior-design-kolkata-1.jpg" alt="Office Interior Design in Kolkata by RK DESIGNS" style="cursor:pointer;" loading="lazy">
           </a>
           <button id="shuffleOfficeBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
         </div>
@@ -447,7 +447,7 @@
         </div>
         <div class="service-image" style="position:relative;">
           <a href="#portfolio" id="view3dImgLink">
-            <img id="view3dImg" src="uploads/portfolio/layout/3d-layout-design-kolkata-3.jpg" alt="Layout by RK DESIGNS" style="cursor:pointer;">
+            <img id="view3dImg" src="uploads/portfolio/layout/3d-layout-design-kolkata-3.jpg" alt="Layout by RK DESIGNS" style="cursor:pointer;" loading="lazy">
           </a>
           <button id="shuffleView3dBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
         </div>
@@ -459,7 +459,7 @@
       <div class="service-block-inner">
         <div class="service-image" style="position:relative;">
           <a href="#portfolio" id="barImgLink">
-            <img id="barImg" src="uploads/portfolio/bar/trendy-bar-interior-design-kolkata-2.jpg" alt="Restaurant and Bar Design in Kolkata by RK DESIGNS" style="cursor:pointer;">
+            <img id="barImg" src="uploads/portfolio/bar/trendy-bar-interior-design-kolkata-2.jpg" alt="Restaurant and Bar Design in Kolkata by RK DESIGNS" style="cursor:pointer;" loading="lazy">
           </a>
           <button id="shuffleBarBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
         </div>
@@ -531,7 +531,7 @@
       </div>
       <div class="owner-wrapper">
         <div class="owner-image">
-          <img src="uploads/owner-photo.png" alt="Rajesh Dhara - Interior Designer in Kolkata at RK DESIGNS">
+          <img src="uploads/owner-photo.png" alt="Rajesh Dhara - Interior Designer in Kolkata at RK DESIGNS" loading="lazy">
         </div>
         <div class="owner-info">
           <h3>Rajesh Dhara</h3>
@@ -1251,8 +1251,6 @@
 
     setInterval(shuffleView3d, 3000);
 
-    loadPortfolio('all');
-
     // Quote modal - event delegation
     document.addEventListener('click', function(e) {
       var modal = document.getElementById('quoteModal');
@@ -1430,13 +1428,20 @@
         if (idx === 0) shuffle(allBgImages);
       }
 
-      // preload
-      for (var k = 0; k < allBgImages.length; k++) {
+      // preload first 3 images, lazy load rest
+      for (var k = 0; k < 3; k++) {
         var img = new Image();
         img.src = allBgImages[k];
       }
       nextBg();
       setInterval(nextBg, 4000);
+      // lazily preload remaining images
+      setTimeout(function() {
+        for (var k = 3; k < allBgImages.length; k++) {
+          var img = new Image();
+          img.src = allBgImages[k];
+        }
+      }, 5000);
     })();
   </script>
 </body>
