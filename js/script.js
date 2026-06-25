@@ -168,6 +168,14 @@ document.querySelectorAll('.stat-number').forEach(function(el) {
   statObserver.observe(el);
 });
 
+// ========== FAQ TOGGLE ==========
+document.querySelectorAll('.faq-question').forEach(function(q) {
+  q.addEventListener('click', function() {
+    var item = this.parentElement;
+    item.classList.toggle('open');
+  });
+});
+
 // ========== CURSOR FOLLOWER ==========
 var cursorDot = document.getElementById('cursorDot');
 
