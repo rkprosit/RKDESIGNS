@@ -565,6 +565,38 @@
     </div>
   </section>
 
+  <!-- Review Modal -->
+  <div class="modal-overlay" id="reviewModal">
+    <div class="modal-box">
+      <button class="modal-close" id="reviewModalClose">&times;</button>
+      <div class="modal-logo">
+        <img src="uploads/logo.png" alt="RK DESIGNS - Leave a Review">
+      </div>
+      <div class="section-header">
+        <h2>Leave a Review</h2>
+        <div class="section-divider"></div>
+      </div>
+      <form class="quote-form" id="reviewForm">
+        <div class="form-row">
+          <input type="text" id="rName" placeholder="Your Name" required>
+          <input type="email" id="rEmail" placeholder="Email Address">
+        </div>
+        <div class="form-row form-row-center">
+          <label class="rating-label">Your Rating</label>
+          <div class="star-rating" id="starRating">
+            <i class="fas fa-star" data-value="1"></i>
+            <i class="fas fa-star" data-value="2"></i>
+            <i class="fas fa-star" data-value="3"></i>
+            <i class="fas fa-star" data-value="4"></i>
+            <i class="fas fa-star" data-value="5"></i>
+          </div>
+        </div>
+        <textarea id="rReview" placeholder="Write your review..." rows="4" required></textarea>
+        <button type="submit" class="btn btn-primary">Submit Review via WhatsApp</button>
+      </form>
+    </div>
+  </div>
+
   <!-- Get Quote Modal -->
   <div class="modal-overlay" id="quoteModal">
       <div class="modal-box">
@@ -650,7 +682,7 @@
           </div>
           <span class="reviews-rating-label">Based on 150+ reviews</span>
         </div>
-        <a href="https://wa.me/919681132254?text=Hi%20RK%20DESIGNS%2C%20I%27d%20like%20to%20leave%20a%20review" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Leave a Review</a>
+        <a href="#" class="btn btn-outline" id="openReviewBtn">Leave a Review</a>
       </div>
       <div class="reviews-grid">
         <div class="review-card">
@@ -1387,18 +1419,30 @@
 
     setInterval(shuffleView3d, 3000);
 
-    // Quote modal - event delegation
+    // Modal handling
     document.addEventListener('click', function(e) {
-      var modal = document.getElementById('quoteModal');
+      var quoteModal = document.getElementById('quoteModal');
+      var reviewModal = document.getElementById('reviewModal');
       if (e.target.closest('#openQuoteBtn') || e.target.closest('.open-quote')) {
         e.preventDefault();
-        modal.classList.add('active');
+        quoteModal.classList.add('active');
       }
       if (e.target.closest('#modalClose')) {
-        modal.classList.remove('active');
+        quoteModal.classList.remove('active');
       }
-      if (e.target === modal) {
-        modal.classList.remove('active');
+      if (e.target === quoteModal) {
+        quoteModal.classList.remove('active');
+      }
+      // Review modal
+      if (e.target.closest('#openReviewBtn')) {
+        e.preventDefault();
+        reviewModal.classList.add('active');
+      }
+      if (e.target.closest('#reviewModalClose')) {
+        reviewModal.classList.remove('active');
+      }
+      if (e.target === reviewModal) {
+        reviewModal.classList.remove('active');
       }
     });
 
@@ -1467,6 +1511,31 @@
     aiInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') handleSend(); });
 
     // Quote form - send to WhatsApp
+    // Star rating
+    var ratingValue = 0;
+    var stars = document.querySelectorAll('#starRating i');
+    stars.forEach(function(star) {
+      star.addEventListener('click', function() {
+        ratingValue = parseInt(this.dataset.value);
+        stars.forEach(function(s, idx) {
+          if (idx < ratingValue) {
+            s.classList.add('active');
+          } else {
+            s.classList.remove('active');
+          }
+        });
+      });
+      star.addEventListener('mouseenter', function() {
+        var val = parseInt(this.dataset.value);
+        stars.forEach(function(s, idx) {
+          s.classList.toggle('hover', idx < val);
+        });
+      });
+      star.addEventListener('mouseleave', function() {
+        stars.forEach(function(s) { s.classList.remove('hover'); });
+      });
+    });
+
     document.getElementById('quoteForm').addEventListener('submit', function(e) {
       e.preventDefault();
       var name = document.getElementById('qName').value;
@@ -1481,6 +1550,22 @@
       msg += 'Service: ' + service + '%0A';
       msg += 'Address: ' + address;
       window.open('https://wa.me/919681132254?text=' + msg, '_blank');
+    });
+
+    // Review form
+    document.getElementById('reviewForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = document.getElementById('rName').value;
+      var email = document.getElementById('rEmail').value;
+      var review = document.getElementById('rReview').value;
+      var stars = ratingValue > 0 ? ratingValue + '/5' : 'Not rated';
+      var msg = 'Hi RK DESIGNS, I would like to leave a review.%0A%0A';
+      msg += 'Name: ' + name + '%0A';
+      if (email) msg += 'Email: ' + email + '%0A';
+      msg += 'Rating: ' + stars + '%0A';
+      msg += 'Review: ' + review;
+      window.open('https://wa.me/919681132254?text=' + msg, '_blank');
+      document.getElementById('reviewModal').classList.remove('active');
     });
 
     // YouTube 2-player shuffle from fixed video list
