@@ -1479,6 +1479,45 @@ ul {
   }
 }
 
+/* ========== MOBILE BOTTOM QUOTE BAR ========== */
+.mobile-quote-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-quote-bar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9998;
+    padding: 0;
+  }
+
+  .mobile-quote-bar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 14px 20px;
+    background: var(--gold);
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .mobile-quote-bar a:hover,
+  .mobile-quote-bar a:active {
+    background: #c9a84c;
+    color: var(--dark);
+  }
+}
+
 /* ========== FLOATING SIDE BUTTONS ========== */
 .float-buttons {
   position: fixed;
@@ -2060,7 +2099,7 @@ ul {
 
   .float-buttons {
     right: 10px;
-    bottom: 80px;
+    bottom: 140px;
     gap: 8px;
   }
 
@@ -2076,7 +2115,7 @@ ul {
 
   .ai-toggle {
     left: 10px;
-    bottom: 80px;
+    bottom: 140px;
     width: 44px;
     height: 44px;
     font-size: 18px;
@@ -2085,7 +2124,7 @@ ul {
   .ai-chat {
     width: calc(100% - 20px);
     left: 10px;
-    bottom: 135px;
+    bottom: 195px;
     height: 340px;
   }
 
