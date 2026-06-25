@@ -168,13 +168,24 @@ document.querySelectorAll('.stat-number').forEach(function(el) {
   statObserver.observe(el);
 });
 
-// ========== FAQ TOGGLE ==========
-document.querySelectorAll('.faq-question').forEach(function(q) {
-  q.addEventListener('click', function() {
-    var item = this.parentElement;
-    item.classList.toggle('open');
+// ========== FAQ ACCORDION ==========
+(function() {
+  var items = document.querySelectorAll('.faq-item');
+  items.forEach(function(item) {
+    var question = item.querySelector('.faq-question');
+    question.addEventListener('click', function() {
+      var isOpen = item.classList.contains('open');
+      items.forEach(function(el) { el.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+    question.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
   });
-});
+})();
 
 // ========== CURSOR FOLLOWER ==========
 var cursorDot = document.getElementById('cursorDot');
