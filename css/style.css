@@ -169,6 +169,10 @@ img[loading="eager"] {
   opacity: 1;
 }
 
+img[loading="lazy"] {
+  opacity: 1;
+}
+
 
 
 
