@@ -548,6 +548,7 @@ ul {
 
 .hero-content {
   position: relative;
+  text-align: center;
 }
 
 .hero-content h1 {
@@ -593,6 +594,7 @@ ul {
 }
 
 .hero-content .btn {
+  margin: 0 auto;
   opacity: 0;
   animation: fadeUp 0.8s var(--ease-out) 1s forwards;
 }
