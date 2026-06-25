@@ -1347,6 +1347,9 @@
     function randomVideo() {
       return videoIds[Math.floor(Math.random() * videoIds.length)];
     }
+    function loadRandomVideo(idx) {
+      players[idx].loadVideoById({videoId: randomVideo(), startSeconds: 10});
+    }
     function onYouTubeIframeAPIReady() {
       for (var i = 0; i < 2; i++) {
         players[i] = new YT.Player('youtube-player-' + i, {
@@ -1356,10 +1359,12 @@
             rel: 0,
             modestbranding: 1,
             mute: 1,
+            start: 10,
           },
           events: {
             onReady: (function(idx) {
               return function() {
+                players[idx].seekTo(10, true);
                 players[idx].playVideo();
               };
             })(i),
@@ -1367,7 +1372,7 @@
               return function(e) {
                 if (e.data === YT.PlayerState.ENDED) {
                   setTimeout(function() {
-                    players[idx].loadVideoById(randomVideo());
+                    loadRandomVideo(idx);
                   }, 500);
                 }
               };
