@@ -571,6 +571,18 @@ ul {
   animation: fadeUp 0.8s var(--ease-out) 0.7s forwards;
 }
 
+.hero-tagline {
+  font-size: 28px;
+  font-weight: 700;
+  color: #c9a84c;
+  font-family: var(--font-serif);
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 35px;
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease-out) 0.85s forwards;
+}
+
 .hero-content .btn {
   opacity: 0;
   animation: fadeUp 0.8s var(--ease-out) 1s forwards;
@@ -1576,6 +1588,10 @@ ul {
     font-size: 44px;
   }
 
+  .hero-tagline {
+    font-size: 24px;
+  }
+
   .service-text {
     padding: 50px 32px;
   }
@@ -1711,6 +1727,11 @@ ul {
     font-size: 14px;
   }
 
+  .hero-tagline {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+
   .service-block-inner {
     grid-template-columns: 1fr 1fr;
   }
@@ -1839,6 +1860,11 @@ ul {
   .hero-content p {
     font-size: 13px;
     line-height: 1.7;
+  }
+
+  .hero-tagline {
+    font-size: 16px;
+    letter-spacing: 1px;
   }
 
   .section-header {

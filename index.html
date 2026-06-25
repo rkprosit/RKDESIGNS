@@ -342,6 +342,7 @@
       <div class="container hero-content">
         <h1 class="hero-title">Kolkata's Trusted<br>Interior Design Studio</h1>
         <p class="hero-subtitle">We create emotive modern interiors for Kolkata homes & offices — distinguished by warmth,<br>originality and careful attention to detail.</p>
+        <p class="hero-tagline">"QUALITY NEVER COMPROMISED"</p>
         <a href="#services" class="btn btn-primary hero-cta">Explore Our Services</a>
       </div>
     </div>
@@ -517,11 +518,6 @@
       <div class="video-grid">
         <div id="youtube-player-0"></div>
         <div id="youtube-player-1"></div>
-        <div id="youtube-player-2"></div>
-        <div id="youtube-player-3"></div>
-        <div id="youtube-player-4"></div>
-        <div id="youtube-player-5"></div>
-        <div id="youtube-player-6"></div>
       </div>
     </div>
   </section>
@@ -1347,17 +1343,43 @@
       window.open('https://wa.me/919681132254?text=' + msg, '_blank');
     });
 
-    // YouTube video grid with fixed videos
+    // YouTube 2-player shuffle from fixed video list
     var players = [];
+    var videoIds = ['KvIbK7dsxRs', 'ElnB3hXgkPs', '7nCKxFHmtBw', '1xbzQPmGVLE', '2BpxjUBViA4', 'M33ntge--tw', 'Ijwv9U2ej7I'];
+    var readyCount = 0;
     function onYouTubeIframeAPIReady() {
-      var videoIds = ['KvIbK7dsxRs', 'ElnB3hXgkPs', '7nCKxFHmtBw', '1xbzQPmGVLE', '2BpxjUBViA4', 'M33ntge--tw', 'Ijwv9U2ej7I'];
-      for (var i = 0; i < videoIds.length; i++) {
+      for (var i = 0; i < 2; i++) {
         players[i] = new YT.Player('youtube-player-' + i, {
-          videoId: videoIds[i],
           playerVars: {
+            listType: 'playlist',
+            list: videoIds.join(','),
             rel: 0,
             modestbranding: 1,
+            mute: 1,
           },
+          events: {
+            onReady: (function(idx) {
+              return function() {
+                readyCount++;
+                if (readyCount === 2) {
+                  for (var j = 0; j < 2; j++) {
+                    var list = players[j].getPlaylist();
+                    if (list && list.length) players[j].playVideoAt(Math.floor(Math.random() * list.length));
+                  }
+                }
+              };
+            })(i),
+            onStateChange: (function(idx) {
+              return function(e) {
+                if (e.data === YT.PlayerState.ENDED) {
+                  setTimeout(function() {
+                    var list = players[idx].getPlaylist();
+                    if (list && list.length) players[idx].playVideoAt(Math.floor(Math.random() * list.length));
+                  }, 500);
+                }
+              };
+            })(i),
+          }
         });
       }
     }
