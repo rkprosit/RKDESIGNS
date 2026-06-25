@@ -716,6 +716,51 @@ ul {
   transform: scale(1.03);
 }
 
+/* ========== AREAS WE SERVE ========== */
+.areas-section {
+  padding: 80px 0;
+  background: var(--off-white);
+}
+
+.areas-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.area-item {
+  display: inline-flex;
+  padding: 10px 22px;
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--dark);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.area-item:hover {
+  background: var(--gold);
+  color: var(--white);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .areas-section {
+    padding: 50px 0;
+  }
+  .area-item {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}
+
 /* ========== PORTFOLIO CTA ========== */
 .portfolio-cta {
   background: var(--dark);
