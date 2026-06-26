@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,8 @@
   <meta name="robots" content="index, follow">
   <meta name="google-site-verification" content="7tRbk-0bBxcNClmO24TuePrwwXHBdunjmTknTZgZs_I">
   <meta name="theme-color" content="#1a1a1a">
+  <meta name="format-detection" content="telephone=yes">
+  <meta name="referrer" content="origin-when-cross-origin">
   <meta name="geo.region" content="IN-WB">
   <meta name="geo.placename" content="Kolkata">
   <meta name="geo.position" content="22.8955;88.1315">
@@ -93,7 +95,20 @@
       "https://wa.me/919681132254"
     ],
     "openingHours": "Mo-Su 09:00-20:00",
-    "priceRange": "₹₹"
+    "priceRange": "₹₹",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "09:00", "closes": "20:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "09:00", "closes": "20:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "09:00", "closes": "20:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "09:00", "closes": "20:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "20:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "20:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:00", "closes": "20:00" }
+    ],
+    "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 5, "maxValue": 20 },
+    "foundingDate": "2010",
+    "knowsAbout": ["Interior Design", "Home Renovation", "Modular Kitchen", "Office Design", "False Ceiling", "Wardrobe Design", "Furniture Design", "Home Painting", "Tiles and Marble Polishing"],
+    "keywords": "interior design Kolkata, home interiors, modular kitchen, office interior, false ceiling, wardrobe design, furniture work, home painting, tiles marble polishing, RK DESIGNS"
   }
   </script>
 
@@ -135,17 +150,56 @@
       "name": "RK DESIGNS",
       "url": "https://www.rkdesignsinterior.in/"
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Kolkata"
-    },
-    "description": "RK DESIGNS offers professional interior design services in Kolkata including home interiors, modular kitchen design, office interiors, false ceiling installation, and turnkey interior solutions.",
+    "areaServed": [
+      { "@type": "City", "name": "Kolkata" },
+      { "@type": "City", "name": "Howrah" },
+      { "@type": "City", "name": "Siliguri" },
+      { "@type": "City", "name": "Durgapur" },
+      { "@type": "City", "name": "Asansol" },
+      { "@type": "State", "name": "West Bengal" }
+    ],
+    "description": "RK DESIGNS offers professional interior design services across Kolkata and West Bengal including luxury home interiors, modular kitchen design, office interiors, false ceiling installation, wardrobe design, furniture work, home painting, tiles and marble polishing, 3D layout visualization, and turnkey interior solutions.",
     "offers": [
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Home Interior Design"
+          "name": "Luxury Residence Interior Design"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "2BHK Interior Design"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "3BHK Interior Design"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Commercial Office Interior Design"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "3D Layout and Visualization"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Restaurant and Bar Design"
         }
       },
       {
@@ -159,14 +213,35 @@
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Office Interior Design"
+          "name": "False Ceiling and Lighting"
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "False Ceiling Installation"
+          "name": "Wardrobe Design"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Custom Furniture Work"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Home Painting Services"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Tiles and Marble Polishing"
         }
       },
       {
@@ -187,10 +262,10 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What interior design services do you offer in Kolkata and West Bengal?",
+        "name": "What interior design services does RK DESIGNS offer in Kolkata?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We offer home interiors, modular kitchen design, office interiors, false ceiling installation, layout, and complete turnkey interior solutions for residential and commercial spaces across Kolkata."
+          "text": "We offer 12 specialized services: luxury residence interiors, 2BHK and 3BHK apartment design, commercial office interiors, 3D layout and visualization, restaurant and bar design, modular kitchens, false ceiling and lighting, wardrobe design, custom furniture work, home painting, tiles and marble polishing, and complete turnkey solutions across Kolkata and West Bengal."
         }
       },
       {
@@ -224,6 +299,46 @@
           "@type": "Answer",
           "text": "Yes, we provide end-to-end turnkey interior solutions covering design, material selection, procurement, construction, installation, and project management."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "What is modular kitchen design and do you offer it in Kolkata?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Modular kitchen design involves pre-fabricated cabinet modules that are assembled on-site for efficient storage and style. Yes, we design and install custom modular kitchens in Kolkata with premium finishes, durable materials, and smart layouts tailored to your cooking habits."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide false ceiling installation in Kolkata?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we specialize in custom false ceiling designs using gypsum and POP materials. Our team handles complete installation with integrated lighting design to transform the ambiance of any room in Kolkata."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you design custom wardrobes for my bedroom?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. We design and craft custom wardrobes including sliding doors, hinged doors, and walk-in closets that maximize your storage space while complementing your bedroom decor."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What areas in West Bengal do you serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We serve all across West Bengal including Kolkata, Howrah, Hooghly, Salt Lake, New Town, Rajarhat, Barasat, Dum Dum, Behala, Garia, Tollygunge, Joka, Bardhaman, Kalyani, Siliguri, Durgapur, Asansol, and Haldia."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer office interior design for commercial spaces in Kolkata?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we design productive and inspiring workspaces for businesses in Kolkata. Our commercial interior design services cover open-plan offices, cabins, conference rooms, and reception areas with a focus on brand identity and employee comfort."
+        }
       }
     ]
   }
@@ -234,26 +349,45 @@
     "@context": "https://schema.org",
     "@type": "Product",
     "name": "RK DESIGNS Interior Design Services",
-    "description": "Interior design services in Kolkata, West Bengal",
+    "description": "Professional interior design services in Kolkata and West Bengal including luxury home interiors, modular kitchen design, office interiors, false ceiling installation, wardrobe design, custom furniture, home painting, and tiles marble polishing.",
     "brand": { "@type": "Brand", "name": "RK DESIGNS" },
+    "category": "Interior Design",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "INR",
+      "offerCount": "12",
+      "availability": "https://schema.org/InStock"
+    },
     "review": [
       {
         "@type": "Review",
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
         "author": { "@type": "Person", "name": "Sourav M." },
-        "reviewBody": "RK DESIGNS transformed our 3BHK flat into a stunning home. Highly recommended!"
+        "reviewBody": "RK DESIGNS transformed our 3BHK flat into a stunning home. Their attention to detail and quality of work exceeded our expectations. Highly recommended!"
       },
       {
         "@type": "Review",
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
         "author": { "@type": "Person", "name": "Priya S." },
-        "reviewBody": "Professional team with great design sense. Completed our office interior on time and within budget."
+        "reviewBody": "Professional team with great design sense. They completed our office interior on time and within budget. The workspace looks incredible!"
       },
       {
         "@type": "Review",
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
         "author": { "@type": "Person", "name": "Rahul G." },
-        "reviewBody": "Best interior designers in Kolkata! Seamless from consultation to execution."
+        "reviewBody": "Best interior designers in Kolkata! From consultation to execution, everything was seamless. Our modular kitchen turned out exactly as we envisioned."
+      },
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "Ananya B." },
+        "reviewBody": "We hired RK DESIGNS for our false ceiling and lighting project. The team was professional and the result is stunning. Our living room looks completely transformed."
+      },
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "Vikram S." },
+        "reviewBody": "Excellent wardrobe design and installation. The team listened to our requirements and delivered exactly what we wanted. Great craftsmanship and timely completion."
       }
     ],
     "aggregateRating": {
@@ -303,13 +437,21 @@
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
+    "name": "RK DESIGNS Interior Design Project Videos",
+    "description": "Collection of interior design project videos and walkthroughs by RK DESIGNS in Kolkata",
+    "url": "https://www.youtube.com/@rkdesignshomedecor3142",
     "itemListElement": [
       {
         "@type": "VideoObject",
         "name": "RK DESIGNS Interior Design Projects",
         "description": "Portfolio of interior design projects by RK DESIGNS in Kolkata, West Bengal",
         "thumbnailUrl": "https://www.rkdesignsinterior.in/uploads/logo.png",
-        "publication": { "@type": "BroadcastEvent", "isLiveBroadcast": false }
+        "publication": { "@type": "BroadcastEvent", "isLiveBroadcast": false },
+        "publisher": {
+          "@type": "Organization",
+          "name": "RK DESIGNS",
+          "url": "https://www.rkdesignsinterior.in/"
+        }
       }
     ]
   }
@@ -514,109 +656,108 @@
       </div>
     </div>
 
+    <!-- Service 7: Text Left / Image Right -->
+    <div class="service-block" id="service-modular-kitchen" data-reveal="fade-up">
+      <div class="service-block-inner">
+        <div class="service-text">
+          <h3>Modular Kitchen Design</h3>
+          <p>Your kitchen deserves to be as beautiful as it is useful. We create smart layouts with premium finishes, durable materials, and plenty of storage — perfect for everyday cooking and family gatherings.</p>
+          <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
+        </div>
+        <div class="service-image" style="position:relative;">
+          <a href="#portfolio" id="kitchenImgLink">
+            <img id="kitchenImg" src="uploads/portfolio/kitchen/modular-kitchen-design-kolkata-1.jpg" alt="Modular Kitchen Design by RK DESIGNS" style="cursor:pointer;" loading="lazy">
+          </a>
+          <button id="shuffleKitchenBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 8: Image Left / Text Right -->
+    <div class="service-block service-block-alt" id="service-false-ceiling" data-reveal="fade-up">
+      <div class="service-block-inner">
+        <div class="service-image" style="position:relative;">
+          <a href="#portfolio" id="ceilingImgLink">
+            <img id="ceilingImg" src="uploads/portfolio/living/modern-living-room-interior-kolkata-1.jpg" alt="False Ceiling & Lighting Design by RK DESIGNS" style="cursor:pointer;" loading="lazy">
+          </a>
+          <button id="shuffleCeilingBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
+        </div>
+        <div class="service-text">
+          <h3>False Ceiling &amp; Lighting</h3>
+          <p>Custom false ceiling designs that bring life and depth to your rooms. From gypsum to POP, we tailor lighting that complements your interiors perfectly and transforms the ambiance of every space.</p>
+          <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 9: Text Left / Image Right -->
+    <div class="service-block" id="service-wardrobe" data-reveal="fade-up">
+      <div class="service-block-inner">
+        <div class="service-text">
+          <h3>Wardrobe Design</h3>
+          <p>Custom wardrobes that blend style with storage. We design and craft wardrobes that maximize your space while adding a touch of elegance to your bedroom — from sliding doors to walk-in closets.</p>
+          <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
+        </div>
+        <div class="service-image" style="position:relative;">
+          <a href="#portfolio" id="wardrobeImgLink">
+            <img id="wardrobeImg" src="uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-1.jpg" alt="Wardrobe Design by RK DESIGNS" style="cursor:pointer;" loading="lazy">
+          </a>
+          <button id="shuffleWardrobeBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 10: Image Left / Text Right -->
+    <div class="service-block service-block-alt" id="service-furniture" data-reveal="fade-up">
+      <div class="service-block-inner">
+        <div class="service-image" style="position:relative;">
+          <a href="#portfolio" id="furnitureImgLink">
+            <img id="furnitureImg" src="uploads/portfolio/showroom/modern-showroom-interior-design-kolkata-1.jpg" alt="Furniture Work by RK DESIGNS" style="cursor:pointer;" loading="lazy">
+          </a>
+          <button id="shuffleFurnitureBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
+        </div>
+        <div class="service-text">
+          <h3>Furniture Work</h3>
+          <p>From contemporary sofas to classic wooden pieces, we craft custom furniture that matches your space, comfort, and design preferences. Each piece is built to last with quality materials and fine craftsmanship.</p>
+          <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 11: Text Left / Image Right -->
+    <div class="service-block" id="service-painting" data-reveal="fade-up">
+      <div class="service-block-inner">
+        <div class="service-text">
+          <h3>Home Painting</h3>
+          <p>Give your walls a fresh new look with our professional home painting services. We use premium paints and precise techniques to deliver smooth, lasting finishes that brighten up every room.</p>
+          <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
+        </div>
+        <div class="service-image" style="position:relative;">
+          <a href="#portfolio" id="paintingImgLink">
+            <img id="paintingImg" src="uploads/portfolio/living/modern-living-room-interior-kolkata-5.jpg" alt="Home Painting by RK DESIGNS" style="cursor:pointer;" loading="lazy">
+          </a>
+          <button id="shufflePaintingBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 12: Image Left / Text Right -->
+    <div class="service-block service-block-alt" id="service-tiles-marble" data-reveal="fade-up">
+      <div class="service-block-inner">
+        <div class="service-image" style="position:relative;">
+          <a href="#portfolio" id="tilesImgLink">
+            <img id="tilesImg" src="uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-1.jpg" alt="Tiles & Marble by RK DESIGNS" style="cursor:pointer;" loading="lazy">
+          </a>
+          <button id="shuffleTilesBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
+        </div>
+        <div class="service-text">
+          <h3>Tiles &amp; Marble Polishing</h3>
+          <p>Restore the natural shine and grace of your flooring. Our tiles and marble polishing services bring back the richness and smooth texture of stone surfaces, making your floors look brand new.</p>
+          <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
+        </div>
+      </div>
+    </div>
   </section>
-
-  <!-- Service 7: Text Left / Image Right -->
-  <div class="service-block" id="service-modular-kitchen" data-reveal="fade-up">
-    <div class="service-block-inner">
-      <div class="service-text">
-        <h3>Modular Kitchen Design</h3>
-        <p>Your kitchen deserves to be as beautiful as it is useful. We create smart layouts with premium finishes, durable materials, and plenty of storage — perfect for everyday cooking and family gatherings.</p>
-        <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
-      </div>
-      <div class="service-image" style="position:relative;">
-        <a href="#portfolio" id="kitchenImgLink">
-          <img id="kitchenImg" src="uploads/portfolio/kitchen/modular-kitchen-design-kolkata-1.jpg" alt="Modular Kitchen Design by RK DESIGNS" style="cursor:pointer;" loading="lazy">
-        </a>
-        <button id="shuffleKitchenBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Service 8: Image Left / Text Right -->
-  <div class="service-block service-block-alt" id="service-false-ceiling" data-reveal="fade-up">
-    <div class="service-block-inner">
-      <div class="service-image" style="position:relative;">
-        <a href="#portfolio" id="ceilingImgLink">
-          <img id="ceilingImg" src="uploads/portfolio/living/modern-living-room-interior-kolkata-1.jpg" alt="False Ceiling & Lighting Design by RK DESIGNS" style="cursor:pointer;" loading="lazy">
-        </a>
-        <button id="shuffleCeilingBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
-      </div>
-      <div class="service-text">
-        <h3>False Ceiling &amp; Lighting</h3>
-        <p>Custom false ceiling designs that bring life and depth to your rooms. From gypsum to POP, we tailor lighting that complements your interiors perfectly and transforms the ambiance of every space.</p>
-        <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Service 9: Text Left / Image Right -->
-  <div class="service-block" id="service-wardrobe" data-reveal="fade-up">
-    <div class="service-block-inner">
-      <div class="service-text">
-        <h3>Wardrobe Design</h3>
-        <p>Custom wardrobes that blend style with storage. We design and craft wardrobes that maximize your space while adding a touch of elegance to your bedroom — from sliding doors to walk-in closets.</p>
-        <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
-      </div>
-      <div class="service-image" style="position:relative;">
-        <a href="#portfolio" id="wardrobeImgLink">
-          <img id="wardrobeImg" src="uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-1.jpg" alt="Wardrobe Design by RK DESIGNS" style="cursor:pointer;" loading="lazy">
-        </a>
-        <button id="shuffleWardrobeBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Service 10: Image Left / Text Right -->
-  <div class="service-block service-block-alt" id="service-furniture" data-reveal="fade-up">
-    <div class="service-block-inner">
-      <div class="service-image" style="position:relative;">
-        <a href="#portfolio" id="furnitureImgLink">
-          <img id="furnitureImg" src="uploads/portfolio/showroom/modern-showroom-interior-design-kolkata-1.jpg" alt="Furniture Work by RK DESIGNS" style="cursor:pointer;" loading="lazy">
-        </a>
-        <button id="shuffleFurnitureBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
-      </div>
-      <div class="service-text">
-        <h3>Furniture Work</h3>
-        <p>From contemporary sofas to classic wooden pieces, we craft custom furniture that matches your space, comfort, and design preferences. Each piece is built to last with quality materials and fine craftsmanship.</p>
-        <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Service 11: Text Left / Image Right -->
-  <div class="service-block" id="service-painting" data-reveal="fade-up">
-    <div class="service-block-inner">
-      <div class="service-text">
-        <h3>Home Painting</h3>
-        <p>Give your walls a fresh new look with our professional home painting services. We use premium paints and precise techniques to deliver smooth, lasting finishes that brighten up every room.</p>
-        <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
-      </div>
-      <div class="service-image" style="position:relative;">
-        <a href="#portfolio" id="paintingImgLink">
-          <img id="paintingImg" src="uploads/portfolio/living/modern-living-room-interior-kolkata-5.jpg" alt="Home Painting by RK DESIGNS" style="cursor:pointer;" loading="lazy">
-        </a>
-        <button id="shufflePaintingBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Service 12: Image Left / Text Right -->
-  <div class="service-block service-block-alt" id="service-tiles-marble" data-reveal="fade-up">
-    <div class="service-block-inner">
-      <div class="service-image" style="position:relative;">
-        <a href="#portfolio" id="tilesImgLink">
-          <img id="tilesImg" src="uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-1.jpg" alt="Tiles & Marble by RK DESIGNS" style="cursor:pointer;" loading="lazy">
-        </a>
-        <button id="shuffleTilesBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
-      </div>
-      <div class="service-text">
-        <h3>Tiles &amp; Marble Polishing</h3>
-        <p>Restore the natural shine and grace of your flooring. Our tiles and marble polishing services bring back the richness and smooth texture of stone surfaces, making your floors look brand new.</p>
-        <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
-      </div>
-    </div>
-  </div>
 
   <!-- Our Specializations -->
   <section class="specializations" id="specializations" data-reveal="fade-up">
@@ -820,8 +961,14 @@
             <option value="2BHK Interior Design">2BHK Interior Design</option>
             <option value="3BHK Interior Design">3BHK Interior Design</option>
             <option value="Commercial Office Design">Commercial Office Design</option>
-            <option value="Layout">Layout</option>
+            <option value="3D Layout &amp; Visualization">3D Layout &amp; Visualization</option>
             <option value="Restaurant &amp; Bar Design">Restaurant &amp; Bar Design</option>
+            <option value="Modular Kitchen">Modular Kitchen</option>
+            <option value="False Ceiling &amp; Lighting">False Ceiling &amp; Lighting</option>
+            <option value="Wardrobe Design">Wardrobe Design</option>
+            <option value="Furniture Work">Furniture Work</option>
+            <option value="Home Painting">Home Painting</option>
+            <option value="Tiles &amp; Marble Polishing">Tiles &amp; Marble Polishing</option>
             <option value="Other">Other</option>
           </select>
         </div>
@@ -1392,6 +1539,7 @@
       var img = document.getElementById('officeImg');
       officeIndex = (officeIndex + 1) % officeImages.length;
       img.src = officeImages[officeIndex];
+      img.alt = 'Office Interior Design in Kolkata by RK DESIGNS - Portfolio Image ' + (officeIndex + 1);
     }
 
     document.getElementById('shuffleOfficeBtn').addEventListener('click', shuffleOffice);
@@ -1447,6 +1595,7 @@
       var img = document.getElementById('luxuryImg');
       luxuryIndex = (luxuryIndex + 1) % luxuryImages.length;
       img.src = luxuryImages[luxuryIndex];
+      img.alt = 'Luxury Villa Interior Design in Kolkata by RK DESIGNS - Portfolio Image ' + (luxuryIndex + 1);
     }
 
     document.getElementById('shuffleLuxuryBtn').addEventListener('click', shuffleLuxury);
@@ -1477,6 +1626,7 @@
       var img = document.getElementById('barImg');
       barIndex = (barIndex + 1) % barImages.length;
       img.src = barImages[barIndex];
+      img.alt = 'Restaurant and Bar Design in Kolkata by RK DESIGNS - Portfolio Image ' + (barIndex + 1);
     }
 
     document.getElementById('shuffleBarBtn').addEventListener('click', shuffleBar);
@@ -1567,12 +1717,14 @@
       var img = document.getElementById('bhk2Img');
       bhk2Index = (bhk2Index + 1) % bhk2Images.length;
       img.src = bhk2Images[bhk2Index];
+      img.alt = '2BHK Interior Design in Kolkata by RK DESIGNS - Portfolio Image ' + (bhk2Index + 1);
     }
     var bhk3Index = 0;
     function shuffleBhk3() {
       var img = document.getElementById('bhk3Img');
       bhk3Index = (bhk3Index + 1) % bhk3Images.length;
       img.src = bhk3Images[bhk3Index];
+      img.alt = '3BHK Interior Design in Kolkata by RK DESIGNS - Portfolio Image ' + (bhk3Index + 1);
     }
 
     document.getElementById('shuffleBhk2Btn').addEventListener('click', shuffleBhk2);
@@ -1603,6 +1755,7 @@
       var img = document.getElementById('view3dImg');
       view3dIndex = (view3dIndex + 1) % view3dImages.length;
       img.src = view3dImages[view3dIndex];
+      img.alt = '3D Layout and Visualization by RK DESIGNS in Kolkata - Portfolio Image ' + (view3dIndex + 1);
     }
 
     document.getElementById('shuffleView3dBtn').addEventListener('click', shuffleView3d);
@@ -1632,6 +1785,7 @@
       var img = document.getElementById('kitchenImg');
       kitchenIndex = (kitchenIndex + 1) % kitchenImages.length;
       img.src = kitchenImages[kitchenIndex];
+      img.alt = 'Modular Kitchen Design by RK DESIGNS in Kolkata - Portfolio Image ' + (kitchenIndex + 1);
     }
     document.getElementById('shuffleKitchenBtn').addEventListener('click', shuffleKitchen);
     document.getElementById('kitchenImgLink').addEventListener('click', function(e) {
@@ -1660,6 +1814,7 @@
       var img = document.getElementById('ceilingImg');
       ceilingIndex = (ceilingIndex + 1) % ceilingImages.length;
       img.src = ceilingImages[ceilingIndex];
+      img.alt = 'False Ceiling and Lighting Design by RK DESIGNS in Kolkata - Portfolio Image ' + (ceilingIndex + 1);
     }
     document.getElementById('shuffleCeilingBtn').addEventListener('click', shuffleCeiling);
     document.getElementById('ceilingImgLink').addEventListener('click', function(e) {
@@ -1688,6 +1843,7 @@
       var img = document.getElementById('wardrobeImg');
       wardrobeIndex = (wardrobeIndex + 1) % wardrobeImages.length;
       img.src = wardrobeImages[wardrobeIndex];
+      img.alt = 'Wardrobe Design by RK DESIGNS in Kolkata - Portfolio Image ' + (wardrobeIndex + 1);
     }
     document.getElementById('shuffleWardrobeBtn').addEventListener('click', shuffleWardrobe);
     document.getElementById('wardrobeImgLink').addEventListener('click', function(e) {
@@ -1716,6 +1872,7 @@
       var img = document.getElementById('furnitureImg');
       furnitureIndex = (furnitureIndex + 1) % furnitureImages.length;
       img.src = furnitureImages[furnitureIndex];
+      img.alt = 'Custom Furniture Work by RK DESIGNS in Kolkata - Portfolio Image ' + (furnitureIndex + 1);
     }
     document.getElementById('shuffleFurnitureBtn').addEventListener('click', shuffleFurniture);
     document.getElementById('furnitureImgLink').addEventListener('click', function(e) {
@@ -1744,6 +1901,7 @@
       var img = document.getElementById('paintingImg');
       paintingIndex = (paintingIndex + 1) % paintingImages.length;
       img.src = paintingImages[paintingIndex];
+      img.alt = 'Home Painting Services by RK DESIGNS in Kolkata - Portfolio Image ' + (paintingIndex + 1);
     }
     document.getElementById('shufflePaintingBtn').addEventListener('click', shufflePainting);
     document.getElementById('paintingImgLink').addEventListener('click', function(e) {
@@ -1772,6 +1930,7 @@
       var img = document.getElementById('tilesImg');
       tilesIndex = (tilesIndex + 1) % tilesImages.length;
       img.src = tilesImages[tilesIndex];
+      img.alt = 'Tiles and Marble Polishing by RK DESIGNS in Kolkata - Portfolio Image ' + (tilesIndex + 1);
     }
     document.getElementById('shuffleTilesBtn').addEventListener('click', shuffleTiles);
     document.getElementById('tilesImgLink').addEventListener('click', function(e) {
