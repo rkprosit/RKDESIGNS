@@ -1032,7 +1032,15 @@ ul {
   outline: none;
   color: var(--dark);
   font-weight: 300;
+  background: #fff;
   transition: var(--transition);
+}
+
+.quote-form select {
+  appearance: auto;
+  -webkit-appearance: auto;
+  cursor: pointer;
+  background: #fff;
 }
 
 .quote-form input:focus,
