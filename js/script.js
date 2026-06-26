@@ -187,6 +187,13 @@ document.querySelectorAll('.stat-number').forEach(function(el) {
   });
 })();
 
+// ========== REVEAL FALLBACK ==========
+setTimeout(function() {
+  document.querySelectorAll('[data-reveal]:not(.revealed)').forEach(function(el) {
+    el.classList.add('revealed');
+  });
+}, 3000);
+
 // ========== CURSOR FOLLOWER ==========
 var cursorDot = document.getElementById('cursorDot');
 
