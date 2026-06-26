@@ -173,14 +173,7 @@
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "2BHK Interior Design"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "3BHK Interior Design"
+          "name": "2BHK & 3BHK Interior Design"
         }
       },
       {
@@ -477,13 +470,8 @@
         <li class="dropdown">
           <a href="#services" class="active">Services <i class="fas fa-chevron-down"></i></a>
           <ul class="dropdown-menu">
-            <li class="dropdown">
-              <a href="#service-luxury">Luxury Residence <i class="fas fa-chevron-down"></i></a>
-              <ul class="dropdown-menu">
-                <li><a href="#service-2bhk">2BHK</a></li>
-                <li><a href="#service-3bhk">3BHK</a></li>
-              </ul>
-            </li>
+            <li><a href="#service-luxury">Luxury Residence</a></li>
+            <li><a href="#service-bhk">2BHK &amp; 3BHK</a></li>
             <li><a href="#service-commercial">Commercial Office</a></li>
             <li><a href="#service-retail">Layout</a></li>
             <li><a href="#service-hospitality">Restaurant</a></li>
@@ -577,36 +565,19 @@
       </div>
     </div>
 
-    <!-- Service 2: Image Left / Text Right -->
-    <div class="service-block service-block-alt" id="service-2bhk" data-reveal="fade-up">
+    <!-- Service 2: Image Left / Text Right (Merged 2BHK & 3BHK) -->
+    <div class="service-block service-block-alt" id="service-bhk" data-reveal="fade-up">
       <div class="service-block-inner">
         <div class="service-image" style="position:relative;">
-          <a href="#portfolio" id="bhk2ImgLink">
-            <img id="bhk2Img" src="uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-2.jpg" alt="2BHK Interior Design in Kolkata by RK DESIGNS" style="cursor:pointer;" loading="lazy">
+          <a href="#portfolio" id="bhkImgLink">
+            <img id="bhkImg" src="uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-2.jpg" alt="2BHK and 3BHK Interior Design in Kolkata by RK DESIGNS" style="cursor:pointer;" loading="lazy">
           </a>
-          <button id="shuffleBhk2Btn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
+          <button id="shuffleBhkBtn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
         </div>
         <div class="service-text">
-          <h3>2BHK Interior Design in Kolkata</h3>
-          <p>Smart, stylish, and space-efficient. We specialize in transforming 2BHK apartments across Kolkata into modern, functional homes that maximize every square foot without compromising on aesthetics.</p>
+          <h3>2BHK &amp; 3BHK Interior Design in Kolkata</h3>
+          <p>Smart, spacious, and beautifully designed. We specialize in transforming both 2BHK and 3BHK apartments across Kolkata into modern, functional homes. From compact layouts that maximize every square foot to expansive family spaces with dedicated zones for living, entertainment, and relaxation — we craft interiors that match your lifestyle perfectly.</p>
           <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Service 3: Text Left / Image Right -->
-    <div class="service-block" id="service-3bhk" data-reveal="fade-up">
-      <div class="service-block-inner">
-        <div class="service-text">
-          <h3>3BHK Interior Design in Kolkata</h3>
-          <p>Spacious living, beautifully designed. Our 3BHK interiors for Kolkata families offer the perfect balance of luxury and practicality, with dedicated zones for family living, entertainment, and relaxation.</p>
-          <a href="#" class="btn btn-outline open-quote">Get A Quote Now</a>
-        </div>
-        <div class="service-image" style="position:relative;">
-          <a href="#portfolio" id="bhk3ImgLink">
-            <img id="bhk3Img" src="uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-1.jpg" alt="3BHK Interior Design in Kolkata by RK DESIGNS" style="cursor:pointer;" loading="lazy">
-          </a>
-          <button id="shuffleBhk3Btn" style="position:absolute;bottom:15px;right:15px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px;z-index:2;" title="Next Photo"><i class="fas fa-shuffle"></i></button>
         </div>
       </div>
     </div>
@@ -964,8 +935,7 @@
           <select id="qService" required>
             <option value="" disabled selected>Select Service</option>
             <option value="Luxury Residence">Luxury Residence</option>
-            <option value="2BHK Interior Design">2BHK Interior Design</option>
-            <option value="3BHK Interior Design">3BHK Interior Design</option>
+                <option value="2BHK & 3BHK Interior Design">2BHK &amp; 3BHK Interior Design</option>
             <option value="Commercial Office Design">Commercial Office Design</option>
             <option value="3D Layout &amp; Visualization">3D Layout &amp; Visualization</option>
             <option value="Restaurant &amp; Bar Design">Restaurant &amp; Bar Design</option>
@@ -1676,93 +1646,83 @@
 
     setInterval(shuffleBar, 3000);
 
-    var bhk2Images = [
+    var bhkImages = [
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-1.jpg',
-      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-3.jpg',
-      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-5.jpg',
-      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-7.jpg',
-      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-9.jpg',
-      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-11.jpg',
-      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-13.jpg',
-      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-15.jpg',
-      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-17.jpg',
-      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-19.jpg',
-      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-21.jpg',
-      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-23.jpg',
-      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-25.jpg',
-      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-27.jpg',
-      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-29.jpg',
-      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-31.jpg',
-      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-33.jpg',
-      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-35.jpg',
-      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-1.jpg',
-      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-3.jpg',
-      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-5.jpg',
-      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-7.jpg',
-      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-9.jpg',
-      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-11.jpg',
-      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-13.jpg',
-      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-15.jpg',
-      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-17.jpg',
-      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-19.jpg',
-      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-21.jpg',
-      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-23.jpg',
-      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-25.jpg',
-    ];
-    var bhk3Images = [
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-2.jpg',
+      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-3.jpg',
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-4.jpg',
+      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-5.jpg',
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-6.jpg',
+      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-7.jpg',
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-8.jpg',
+      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-9.jpg',
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-10.jpg',
+      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-11.jpg',
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-12.jpg',
+      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-13.jpg',
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-14.jpg',
+      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-15.jpg',
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-16.jpg',
+      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-17.jpg',
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-18.jpg',
+      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-19.jpg',
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-20.jpg',
+      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-21.jpg',
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-22.jpg',
+      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-23.jpg',
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-24.jpg',
+      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-25.jpg',
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-26.jpg',
+      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-27.jpg',
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-28.jpg',
+      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-29.jpg',
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-30.jpg',
+      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-31.jpg',
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-32.jpg',
+      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-33.jpg',
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-34.jpg',
+      'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-35.jpg',
       'uploads/portfolio/bedroom/luxury-bedroom-interior-design-kolkata-36.jpg',
+      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-1.jpg',
       'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-2.jpg',
+      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-3.jpg',
       'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-4.jpg',
+      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-5.jpg',
       'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-6.jpg',
+      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-7.jpg',
       'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-8.jpg',
+      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-9.jpg',
       'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-10.jpg',
+      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-11.jpg',
       'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-12.jpg',
+      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-13.jpg',
       'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-14.jpg',
+      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-15.jpg',
       'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-16.jpg',
+      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-17.jpg',
       'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-18.jpg',
+      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-19.jpg',
       'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-20.jpg',
+      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-21.jpg',
       'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-22.jpg',
+      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-23.jpg',
       'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-24.jpg',
+      'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-25.jpg',
       'uploads/portfolio/bathroom/modern-bathroom-interior-design-kolkata-26.jpg',
       'uploads/portfolio/kitchen/modular-kitchen-design-kolkata-1.jpg',
       'uploads/portfolio/kitchen/modular-kitchen-design-kolkata-2.jpg',
       'uploads/portfolio/kitchen/modular-kitchen-design-kolkata-3.jpg',
       'uploads/portfolio/kitchen/modular-kitchen-design-kolkata-4.jpg',
     ];
-    var bhk2Index = 0;
-    function shuffleBhk2() {
-      var img = document.getElementById('bhk2Img');
-      bhk2Index = (bhk2Index + 1) % bhk2Images.length;
-      img.src = bhk2Images[bhk2Index];
-      img.alt = '2BHK Interior Design in Kolkata by RK DESIGNS - Portfolio Image ' + (bhk2Index + 1);
-    }
-    var bhk3Index = 0;
-    function shuffleBhk3() {
-      var img = document.getElementById('bhk3Img');
-      bhk3Index = (bhk3Index + 1) % bhk3Images.length;
-      img.src = bhk3Images[bhk3Index];
-      img.alt = '3BHK Interior Design in Kolkata by RK DESIGNS - Portfolio Image ' + (bhk3Index + 1);
+    var bhkIndex = 0;
+    function shuffleBhk() {
+      var img = document.getElementById('bhkImg');
+      bhkIndex = (bhkIndex + 1) % bhkImages.length;
+      img.src = bhkImages[bhkIndex];
+      img.alt = '2BHK and 3BHK Interior Design in Kolkata by RK DESIGNS - Portfolio Image ' + (bhkIndex + 1);
     }
 
-    document.getElementById('shuffleBhk2Btn').addEventListener('click', shuffleBhk2);
-    document.getElementById('shuffleBhk3Btn').addEventListener('click', shuffleBhk3);
+    document.getElementById('shuffleBhkBtn').addEventListener('click', shuffleBhk);
 
     function goToAllPortfolio(e) {
       e.preventDefault();
@@ -1772,11 +1732,9 @@
       loadPortfolio('all');
       document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
     }
-    document.getElementById('bhk2ImgLink').addEventListener('click', goToAllPortfolio);
-    document.getElementById('bhk3ImgLink').addEventListener('click', goToAllPortfolio);
+    document.getElementById('bhkImgLink').addEventListener('click', goToAllPortfolio);
 
-    setInterval(shuffleBhk2, 3000);
-    setInterval(shuffleBhk3, 3000);
+    setInterval(shuffleBhk, 3000);
 
     var view3dImages = [
       'uploads/portfolio/layout/3d-layout-design-kolkata-1.jpg',
