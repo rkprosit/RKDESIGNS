@@ -855,6 +855,27 @@ ul {
     font-size: 12px;
     padding: 8px 16px;
   }
+  .service-block-inner {
+    grid-template-columns: 1fr;
+  }
+  .service-image {
+    min-height: 240px;
+  }
+  .service-image button {
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+    bottom: 10px !important;
+    right: 10px !important;
+  }
+  #lightboxClose {
+    top: 10px !important;
+    right: 15px !important;
+    font-size: 30px !important;
+  }
+  #lightboxPrev, #lightboxNext {
+    font-size: 30px !important;
+    padding: 6px !important;
+  }
 }
 
 /* ========== PORTFOLIO CTA ========== */
@@ -2275,10 +2296,6 @@ ul {
     letter-spacing: 3px;
   }
 
-  .service-block-inner {
-    grid-template-columns: 1fr 1fr;
-  }
-
   .service-text {
     padding: 40px 24px;
   }
@@ -2614,6 +2631,22 @@ ul {
   .quote-form textarea {
     padding: 12px 14px;
     font-size: 13px;
+  }
+
+  #lightboxClose {
+    top: 8px !important;
+    right: 10px !important;
+    font-size: 24px !important;
+  }
+  #lightboxPrev, #lightboxNext {
+    font-size: 24px !important;
+    padding: 4px !important;
+  }
+  #lightboxPrev {
+    left: 8px !important;
+  }
+  #lightboxNext {
+    right: 8px !important;
   }
 
 }
