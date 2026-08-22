@@ -1,0 +1,15 @@
+# Secrets - never commit real credentials
+config/secrets.php
+
+# Private client documents - never publish client names/files
+uploads/documents/
+
+# Build/deploy output
+.dist/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log

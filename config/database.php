@@ -1,14 +1,19 @@
 <?php
-$host = 'localhost';
-$dbname = 'u303550392_rkdesign';
-$username = 'u303550392_rkdesign';
-$password = '7596968627@Rkp';
+$secrets = require __DIR__ . '/secrets.php';
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db  = $secrets['db'];
+    $pdo = new PDO(
+        "mysql:host={$db['host']};dbname={$db['name']};charset=utf8",
+        $db['user'],
+        $db['pass'],
+        [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        ]
+    );
 } catch (PDOException $e) {
     http_response_code(500);
-    echo json_encode(['error' => 'Connection failed: ' . $e->getMessage()]);
+    echo json_encode(['error' => 'Database connection failed']);
     exit;
 }
